@@ -30,7 +30,7 @@ bash build.sh
 for HIVE, this is equivalently
 
 ```
-salloc -p hive-username -N1 --ntasks-per-node=16 --time=01:00:00 --mem=2gb
+salloc -p hive -A hive-username -N1 --ntasks-per-node=16 --time=01:00:00 --mem=2gb
 bash build.sh
 ```
 
