@@ -27,6 +27,13 @@ make -j16 install prefix=/path/to/where/you/want/magma
 qsub -I -q coc-ice-long -l nodes=1:ppn=16,pmem=2gb,walltime=1:00:00
 bash build.sh
 ```
+for HIVE, this is equivalently
+
+```
+salloc -p hive-username -N1 --ntasks-per-node=16 --time=01:00:00 --mem=2gb
+bash build.sh
+```
+
 5. cd into the location where you installed magma and replace @CXXFLAGS@ and @MAGMA_INCLUDE@ if they haven't been substituted with their associated values
 ```
 cd /path/to/where/you/want/magma
