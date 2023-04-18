@@ -198,7 +198,7 @@ def fig7_clusters(
     df2.drop(columns=["n"], inplace=True)
     df2.drop(columns=["gpus"], inplace=True)
 
-    labels = df2.columns.values
+    # labels = df2.columns.values
     # print(labels)
     # labels = [
     #     'Total',  # 'matrix_ortho',
