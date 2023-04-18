@@ -8,7 +8,8 @@ module load boost/1.79.0-vkqksw
 module load openmpi/4.1.4
 
 #export PKG_CONFIG_PATH=/storage/home/hcocice1/bjohnson361/local/magma/lib/pkgconfig:$PKG_CONFIG_PATH
-export PKG_CONFIG_PATH=/path/to/magma/lib/pkgconfig:$PKG_CONFIG_PATH
+# export PKG_CONFIG_PATH=/path/to/magma/lib/pkgconfig:$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=/storage/home/hhive1/awallace43/data/environ/lib/pkgconfig:$PKG_CONFIG_PATH
 export CUDA_LIB=$LDFLAGS
 
 rm -rf build

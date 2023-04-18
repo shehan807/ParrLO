@@ -703,6 +703,7 @@ int Replicated::SchulzStabilizedSingleDelta(
         }
 
         discrepancy_check = normDeltaZ / normZ;
+        // TODO: print out discrepancy_check
 
         for (int i = 0; i < comm_size - 1; i++)
         {

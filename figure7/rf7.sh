@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -JgpuParrLo                                # Job name
 #SBATCH -Ahive-cs207                            # Charge account
-#SBATCH -N2 -n24 --gres=gpu:2                            # Number of nodes and GPUs required
+#SBATCH -N4 -n24 --gres=gpu:4                            # Number of nodes and GPUs required
 #SBATCH --gres-flags=enforce-binding                # Map CPUs to GPUs
 #SBATCH --mem-per-gpu=64G                           # Memory per gpu
 #SBATCH -t30                                        # Duration of the job (Ex: 15 mins)
@@ -20,7 +20,6 @@ do
     procs=$(expr 6 '*' "$n")
     gpus=$n
     echo procs = $procs gpus = $gpus
-    # srun -n$procs --gres=gpu:$gpus ../build/src/main -c ./r1.cfg
     srun -N$n -n$procs --gres=gpu:$gpus ../build/src/main -c ./r1.cfg
 done
 # nvidia-smi

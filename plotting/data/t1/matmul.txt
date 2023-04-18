@@ -1,0 +1,4 @@
+Timer: Matrix::matrix_matrix_multiply                    5.16e-01  / 5.17e-01  / 5.17e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    5.77e-01  / 5.82e-01  / 5.87e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    3.60e-01  / 4.95e-01  / 5.82e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    3.32e-01  / 4.57e-01  / 5.41e-01  / 10      / 10      / 10     

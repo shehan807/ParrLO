@@ -1,0 +1,394 @@
+procs = 6 gpus = 1
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 18. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Tue Apr 18 14:31:06 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Departure from orthogonality after re-orthogonalizing: 1
+Timer: matrix_ortho                                      6.37e+00  / 6.37e+00  / 6.37e+00  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             1.06e-02  / 1.09e-02  / 1.15e-02  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  3.86e-05  / 4.63e-05  / 6.63e-05  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.57e-05  / 2.01e-05  / 2.72e-05  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 9.06e-06  / 1.08e-05  / 1.36e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           4.05e-04  / 4.50e-04  / 4.79e-04  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          2.78e-04  / 3.03e-04  / 3.43e-04  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   9.58e-04  / 1.00e-03  / 1.03e-03  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               1.91e-05  / 2.24e-05  / 2.67e-05  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.14e-05  / 1.54e-05  / 1.98e-05  / 10      / 10      / 10     
+magma free device_data invalid ptr
+magma free d_work_ invalid ptr
+magma free device_data invalid ptr
+magma free d_work_ invalid ptr
+magma free device_data invalid ptr
+magma free d_work_ invalid ptr
+magma free device_data invalid ptr
+magma free d_work_ invalid ptr
+Timer: Matrix::ortho                                     1.35e-02  / 1.38e-02  / 1.43e-02  / 10      / 10      / 10     
+magma free device_data invalid ptr
+magma free d_work_ invalid ptr
+magma free device_data invalid ptr
+magma free d_work_ invalid ptr
+procs = 12 gpus = 2
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 18. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Tue Apr 18 14:31:16 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Timer: matrix_ortho                                      2.03e+01  / 2.03e+01  / 2.03e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.46e-02  / 6.15e-02  / 1.22e-01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  3.59e-03  / 5.16e-03  / 7.11e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.31e-03  / 2.23e-03  / 3.68e-03  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 8.82e-06  / 1.44e-05  / 2.69e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           3.66e-02  / 4.64e-02  / 5.58e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          3.15e-02  / 5.45e-02  / 7.78e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.20e-01  / 2.84e-01  / 4.56e-01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               4.06e+00  / 4.12e+00  / 4.16e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    2.97e-01  / 4.66e-01  / 6.15e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.73e+00  / 5.08e+00  / 5.43e+00  / 10      / 10      / 10     
+procs = 18 gpus = 3
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 24. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 2: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Tue Apr 18 14:31:39 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.65694e-14
+Timer: matrix_ortho                                      1.45e+01  / 1.45e+01  / 1.45e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.12e-02  / 8.32e-02  / 2.00e-01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  3.32e-03  / 5.20e-03  / 6.91e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.13e-03  / 2.32e-03  / 3.82e-03  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 8.58e-06  / 1.55e-05  / 2.93e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           3.64e-02  / 4.76e-02  / 5.75e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          2.39e-02  / 5.07e-02  / 6.96e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   6.56e-02  / 2.76e-01  / 4.70e-01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               2.58e+00  / 2.67e+00  / 2.73e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.21e-01  / 2.76e-01  / 3.72e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     3.09e+00  / 3.45e+00  / 3.75e+00  / 10      / 10      / 10     
+procs = 24 gpus = 4
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 24. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 2: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 3: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Tue Apr 18 14:31:56 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Timer: matrix_ortho                                      1.16e+01  / 1.16e+01  / 1.16e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             3.55e-02  / 7.23e-02  / 2.11e-01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  4.14e-03  / 5.10e-03  / 6.44e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.32e-03  / 2.40e-03  / 3.43e-03  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 7.87e-06  / 1.52e-05  / 2.88e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           3.84e-02  / 4.87e-02  / 5.50e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          2.91e-02  / 4.77e-02  / 6.58e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.31e-01  / 2.44e-01  / 3.31e-01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               1.87e+00  / 1.98e+00  / 2.02e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.55e-01  / 2.40e-01  / 3.18e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     2.50e+00  / 2.69e+00  / 2.86e+00  / 10      / 10      / 10     

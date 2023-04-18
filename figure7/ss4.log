@@ -1,0 +1,90 @@
+procs = 1 gpus = 1
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 1. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Tue Apr 18 14:57:09 2023
+Warmup MPI...
+Matrix size: 3000000x3000
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 1
+magma free device_inv_sqrt_diagonal_: invalid ptr rep destr
+Orthogonalized A
+Iterative solve took 20 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1
+Timer: matrix_ortho                                      1.54e+02  / 1.54e+02  / 1.54e+02  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.44e-01  / 2.44e-01  / 2.44e-01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  9.63e-05  / 9.63e-05  / 9.63e-05  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 4.22e-05  / 4.22e-05  / 4.22e-05  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 7.88e-03  / 7.88e-03  / 7.88e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           5.91e-04  / 5.91e-04  / 5.91e-04  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          7.15e-05  / 7.15e-05  / 7.15e-05  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   8.48e-04  / 8.48e-04  / 8.48e-04  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               4.08e-05  / 4.08e-05  / 4.08e-05  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.86e-05  / 1.86e-05  / 1.86e-05  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     2.59e-01  / 2.59e-01  / 2.59e-01  / 10      / 10      / 10     
+magma free d_work_ invalid ptr
