@@ -1,0 +1,4 @@
+Timer: Replicated::host_device_transfer                  3.82e-03  / 3.83e-03  / 3.85e-03  / 20      / 20      / 20     
+Timer: Replicated::host_device_transfer                  3.99e-03  / 4.22e-03  / 4.37e-03  / 20      / 20      / 20     
+Timer: Replicated::host_device_transfer                  4.11e-03  / 4.43e-03  / 4.96e-03  / 20      / 20      / 20     
+Timer: Replicated::host_device_transfer                  4.38e-03  / 4.87e-03  / 5.16e-03  / 20      / 20      / 20     

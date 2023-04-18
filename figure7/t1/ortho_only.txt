@@ -1,0 +1,4 @@
+Timer: Matrix::ortho                                     4.55e+00  / 4.55e+00  / 4.55e+00  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.94e+00  / 4.95e+00  / 4.95e+00  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.73e+00  / 4.94e+00  / 5.06e+00  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.78e+00  / 4.98e+00  / 5.11e+00  / 10      / 10      / 10     
