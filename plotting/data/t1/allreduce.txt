@@ -1,0 +1,4 @@
+Timer: Replicated::allreduce                             2.58e-03  / 8.85e-03  / 1.51e-02  / 10      / 10      / 10     
+Timer: Replicated::allreduce                             4.93e-03  / 2.22e-02  / 4.00e-02  / 10      / 10      / 10     
+Timer: Replicated::allreduce                             5.69e-03  / 3.53e-02  / 4.93e-02  / 10      / 10      / 10     
+Timer: Replicated::allreduce                             2.80e-02  / 3.85e-02  / 4.96e-02  / 10      / 10      / 10     

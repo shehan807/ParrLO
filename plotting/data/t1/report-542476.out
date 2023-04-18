@@ -1,0 +1,344 @@
+---------------------------------------
+Begin Slurm Prolog: Apr-17-2023 22:04:59
+Job ID:    542476
+User ID:   awallace43
+Account:   hive-cs207
+Job name:  gpuParrLo
+Partition: hive-gpu-short
+---------------------------------------
+
+The following have been reloaded with a version change:
+  1) openblas/0.3.18-nk2wzj => openblas/0.3.20-7um3t6
+
+procs = 2 gpus = 2
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 12. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 22:18:02 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Timer: matrix_ortho                                      3.01e+01  / 3.01e+01  / 3.01e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.58e-03  / 8.85e-03  / 1.51e-02  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  3.82e-03  / 3.83e-03  / 3.85e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.50e-04  / 1.57e-04  / 1.63e-04  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 1.24e-05  / 1.30e-05  / 1.36e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           7.03e-03  / 7.45e-03  / 7.87e-03  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          6.12e-03  / 6.67e-03  / 7.23e-03  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.89e-02  / 1.93e-02  / 1.97e-02  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               3.97e+00  / 3.98e+00  / 3.98e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    5.16e-01  / 5.17e-01  / 5.17e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.55e+00  / 4.55e+00  / 4.55e+00  / 10      / 10      / 10     
+procs = 4 gpus = 2
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 12. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 22:18:33 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Timer: matrix_ortho                                      2.35e+01  / 2.35e+01  / 2.35e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             4.93e-03  / 2.22e-02  / 4.00e-02  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  3.99e-03  / 4.22e-03  / 4.37e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 8.12e-04  / 1.33e-03  / 1.85e-03  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 1.17e-05  / 1.37e-05  / 1.55e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           1.32e-02  / 1.41e-02  / 1.54e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          1.10e-02  / 1.16e-02  / 1.27e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   4.99e-02  / 5.04e-02  / 5.11e-02  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               4.23e+00  / 4.24e+00  / 4.26e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    5.77e-01  / 5.82e-01  / 5.87e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.94e+00  / 4.95e+00  / 4.95e+00  / 10      / 10      / 10     
+procs = 6 gpus = 2
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 12. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 22:18:58 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Timer: matrix_ortho                                      2.13e+01  / 2.13e+01  / 2.14e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             5.69e-03  / 3.53e-02  / 4.93e-02  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  4.11e-03  / 4.43e-03  / 4.96e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.13e-03  / 1.99e-03  / 2.50e-03  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 9.78e-06  / 1.17e-05  / 1.38e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           1.88e-02  / 2.09e-02  / 2.43e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          1.12e-02  / 1.99e-02  / 2.59e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   7.08e-02  / 1.33e-01  / 1.72e-01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               4.20e+00  / 4.21e+00  / 4.23e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    3.60e-01  / 4.95e-01  / 5.82e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.73e+00  / 4.94e+00  / 5.06e+00  / 10      / 10      / 10     
+procs = 8 gpus = 2
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 12. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% device 1: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 22:19:25 2023
+Warmup MPI...
+Matrix size: 3000000x300
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.239275
+Orthogonalized A
+Iterative solve took 5 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 1.6432e-14
+Timer: matrix_ortho                                      2.11e+01  / 2.11e+01  / 2.11e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.80e-02  / 3.85e-02  / 4.96e-02  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  4.38e-03  / 4.87e-03  / 5.16e-03  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.39e-03  / 1.88e-03  / 2.26e-03  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 9.54e-06  / 1.28e-05  / 1.65e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           2.54e-02  / 2.79e-02  / 3.01e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          2.66e-02  / 3.58e-02  / 4.27e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.36e-01  / 2.07e-01  / 2.79e-01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               4.17e+00  / 4.18e+00  / 4.19e+00  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    3.32e-01  / 4.57e-01  / 5.41e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.78e+00  / 4.98e+00  / 5.11e+00  / 10      / 10      / 10     
+---------------------------------------
+Begin Slurm Epilog: Apr-17-2023 22:04:47
+Job ID:        542476
+Array Job ID:  _4294967294
+User ID:       awallace43
+Account:       hive-cs207
+Job name:      gpuParrLo
+Resources:     cpu=24,gres/gpu:v100=4,mem=256G,node=2
+Rsrc Used:     cput=00:43:12,vmem=6280K,walltime=00:01:48,mem=6112K,energy_used=0
+Partition:     hive-gpu-short
+Nodes:         atl1-1-01-018-23-0,atl1-1-01-018-25-0
+---------------------------------------

@@ -1,0 +1,4 @@
+Timer: Replicated::memory_initialization                 1.50e-04  / 1.57e-04  / 1.63e-04  / 10      / 10      / 10     
+Timer: Replicated::memory_initialization                 8.12e-04  / 1.33e-03  / 1.85e-03  / 10      / 10      / 10     
+Timer: Replicated::memory_initialization                 1.13e-03  / 1.99e-03  / 2.50e-03  / 10      / 10      / 10     
+Timer: Replicated::memory_initialization                 1.39e-03  / 1.88e-03  / 2.26e-03  / 10      / 10      / 10     
