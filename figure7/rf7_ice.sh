@@ -8,7 +8,7 @@
 #SBATCH -phive-gpu-short                                  # Partition name (where job is submitted)
 #SBATCH -oreport-%j.out                             # Combined output and error messages file
 #SBATCH --mail-type=END,FAIL                  # Mail preferences
-#SBATCH --mail-user=awallace3@gatech.edu            # e-mail address for notifications
+#SBATCH --mail-user=sparmar32@gatech.edu            # e-mail address for notifications
 
 cd $HOME/data/gits/ParrLO/figure7
 #   Change to working directory created in $HOME

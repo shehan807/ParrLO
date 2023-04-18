@@ -24,6 +24,7 @@ def scrape_output(output_path, ) -> pd.DataFrame:
         "MatMul": [],
     }
     for l in lines:
+        print(l)
         if l.startswith("procs"):
             l = l.split("=")
             n, g = int(l[1].split()[0]), int(l[2])
@@ -229,7 +230,8 @@ def fig7_clusters(
 def main():
     # fig2()
     # fig7()
-    fig7_clusters()
+    # fig7_clusters()
+    fig7_clusters("data/t1/a4gpu.out", "coc-ice")
     return
 
 
