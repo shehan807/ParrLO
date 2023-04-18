@@ -1,0 +1,9 @@
+Timer: matrix_ortho                                      3.34e+00  / 3.35e+00  / 3.43e+00  / 1       / 1       / 1      
+Timer: matrix_ortho                                      1.05e+01  / 1.05e+01  / 1.05e+01  / 1       / 1       / 1      
+Timer: matrix_ortho                                      1.69e+01  / 1.69e+01  / 1.69e+01  / 1       / 1       / 1      
+Timer: matrix_ortho                                      2.92e+01  / 2.92e+01  / 2.92e+01  / 1       / 1       / 1      
+Timer: matrix_ortho                                      4.89e+01  / 4.89e+01  / 4.89e+01  / 1       / 1       / 1      
+Timer: matrix_ortho                                      7.73e+01  / 7.73e+01  / 7.73e+01  / 1       / 1       / 1      
+Timer: matrix_ortho                                      1.11e+02  / 1.11e+02  / 1.11e+02  / 1       / 1       / 1      
+Timer: matrix_ortho                                      1.53e+02  / 1.53e+02  / 1.53e+02  / 1       / 1       / 1      
+Timer: matrix_ortho                                      2.70e+02  / 2.70e+02  / 2.70e+02  / 1       / 1       / 1      

@@ -1,0 +1,711 @@
+1092 by 1092
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:08:53 2023
+Warmup MPI...
+Matrix size: 1092x1092
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      3.34e+00  / 3.35e+00  / 3.43e+00  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             1.05e-01  / 1.29e-01  / 1.48e-01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  3.43e-02  / 4.36e-02  / 4.77e-02  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.12e-03  / 7.67e-03  / 4.01e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 1.07e-05  / 1.53e-05  / 2.29e-05  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           1.55e-02  / 3.48e-02  / 6.68e-02  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          1.10e-02  / 2.22e-02  / 2.86e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   2.48e-01  / 2.85e-01  / 3.03e-01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               3.93e-03  / 5.46e-03  / 6.90e-03  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    5.14e-03  / 9.55e-03  / 1.33e-02  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     5.40e-01  / 5.73e-01  / 5.90e-01  / 10      / 10      / 10     
+2096 by 2096
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:08:58 2023
+Warmup MPI...
+Matrix size: 2096x2096
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      1.05e+01  / 1.05e+01  / 1.05e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             1.17e+00  / 1.25e+00  / 1.29e+00  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  1.88e-01  / 2.06e-01  / 2.23e-01  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.19e-03  / 1.05e-02  / 3.25e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 3.77e-03  / 6.93e-03  / 7.88e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           2.47e-02  / 5.61e-02  / 1.05e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          2.06e-02  / 3.15e-02  / 5.06e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.18e+00  / 1.40e+00  / 1.53e+00  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               6.26e-03  / 7.87e-03  / 9.57e-03  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.23e-02  / 2.27e-02  / 5.11e-02  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     2.85e+00  / 3.02e+00  / 3.14e+00  / 10      / 10      / 10     
+3140 by 3140
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:09:25 2023
+Warmup MPI...
+Matrix size: 3140x3140
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      1.69e+01  / 1.69e+01  / 1.69e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.43e+00  / 2.50e+00  / 2.60e+00  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  4.13e-01  / 4.71e-01  / 5.05e-01  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.22e-03  / 1.27e-02  / 4.27e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 6.60e-03  / 7.68e-03  / 8.16e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           3.41e-02  / 9.41e-02  / 1.70e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          1.94e-02  / 3.76e-02  / 5.48e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   4.46e+00  / 4.66e+00  / 4.86e+00  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               1.47e-02  / 1.58e-02  / 2.01e-02  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.78e-02  / 4.01e-02  / 6.32e-02  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     7.70e+00  / 7.87e+00  / 8.03e+00  / 10      / 10      / 10     
+4146 by 4146
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:09:43 2023
+Warmup MPI...
+Matrix size: 4146x4146
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      2.92e+01  / 2.92e+01  / 2.92e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             3.94e+00  / 4.14e+00  / 4.38e+00  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  6.91e-01  / 8.19e-01  / 8.88e-01  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.23e-03  / 1.23e-02  / 3.88e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 6.69e-03  / 7.66e-03  / 8.32e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           4.43e-02  / 1.06e-01  / 1.72e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          2.41e-02  / 4.11e-02  / 5.82e-02  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   9.84e+00  / 1.06e+01  / 1.10e+01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               2.83e-02  / 3.69e-02  / 5.84e-02  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    2.72e-02  / 7.67e-02  / 1.20e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     1.52e+01  / 1.59e+01  / 1.63e+01  / 10      / 10      / 10     
+5156 by 5156
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:10:14 2023
+Warmup MPI...
+Matrix size: 5156x5156
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      4.89e+01  / 4.89e+01  / 4.89e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             6.34e+00  / 6.49e+00  / 6.68e+00  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  1.20e+00  / 1.28e+00  / 1.33e+00  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.28e-03  / 1.26e-02  / 3.15e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 6.71e-03  / 7.53e-03  / 8.23e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           5.73e-02  / 1.45e-01  / 2.22e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          3.47e-02  / 7.41e-02  / 1.11e-01  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.98e+01  / 2.06e+01  / 2.11e+01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               5.27e-02  / 6.87e-02  / 9.46e-02  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    6.41e-02  / 1.31e-01  / 1.92e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     2.82e+01  / 2.89e+01  / 2.94e+01  / 10      / 10      / 10     
+6210 by 6210
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:11:05 2023
+Warmup MPI...
+Matrix size: 6210x6210
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      7.73e+01  / 7.73e+01  / 7.73e+01  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             9.43e+00  / 9.87e+00  / 1.03e+01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  1.74e+00  / 1.88e+00  / 2.06e+00  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.32e-03  / 1.20e-02  / 3.12e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 7.65e-03  / 8.00e-03  / 8.31e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           7.13e-02  / 1.80e-01  / 2.72e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          3.83e-02  / 7.64e-02  / 1.13e-01  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   3.50e+01  / 3.65e+01  / 3.74e+01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               9.17e-02  / 1.05e-01  / 1.52e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.22e-01  / 2.13e-01  / 3.26e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     4.76e+01  / 4.89e+01  / 4.99e+01  / 10      / 10      / 10     
+7210 by 7210
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:12:28 2023
+Warmup MPI...
+Matrix size: 7210x7210
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      1.11e+02  / 1.11e+02  / 1.11e+02  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             1.28e+01  / 1.33e+01  / 1.36e+01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  2.28e+00  / 2.47e+00  / 2.75e+00  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 1.34e-03  / 1.33e-02  / 2.65e-02  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 6.45e-03  / 7.68e-03  / 8.29e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           8.53e-02  / 1.97e-01  / 2.97e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          4.47e-02  / 8.90e-02  / 1.18e-01  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   5.46e+01  / 5.65e+01  / 5.79e+01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               1.42e-01  / 1.59e-01  / 2.00e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.25e-01  / 2.81e-01  / 4.15e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     7.14e+01  / 7.31e+01  / 7.46e+01  / 10      / 10      / 10     
+8256 by 8256
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:14:24 2023
+Warmup MPI...
+Matrix size: 8256x8256
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      1.53e+02  / 1.53e+02  / 1.53e+02  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             1.60e+01  / 1.64e+01  / 1.69e+01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  2.89e+00  / 3.19e+00  / 3.39e+00  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 4.22e-04  / 5.48e-04  / 9.49e-04  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 7.87e-03  / 8.08e-03  / 8.25e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           9.98e-02  / 2.12e-01  / 3.18e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          5.06e-02  / 1.01e-01  / 1.55e-01  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   8.12e+01  / 8.44e+01  / 8.59e+01  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               2.14e-01  / 2.49e-01  / 3.12e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    1.85e-01  / 4.39e-01  / 6.14e-01  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     1.02e+02  / 1.05e+02  / 1.07e+02  / 10      / 10      / 10     
+10304 by 10304
+% MAGMA 2.7.1 svn 32-bit magma_int_t, 64-bit pointer.
+% Compiled with CUDA support for 7.0
+% CUDA runtime 11060, driver 11070. OpenMP threads 4. 
+% device 0: Tesla V100-PCIE-16GB, 1380.0 MHz clock, 16160.7 MiB memory, capability 7.0
+% Mon Apr 17 17:17:02 2023
+Warmup MPI...
+Matrix size: 10304x10304
+Step = 0/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 1/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 2/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 3/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 4/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 5/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 6/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 7/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 8/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Step = 9/10
+Departure from orthogonality before re-orthogonalizing: 0.0391574
+Orthogonalized A
+Iterative solve took 4 iterations
+Orthogonality check A
+Departure from orthogonality after re-orthogonalizing: 2.31846e-16
+Timer: matrix_ortho                                      2.70e+02  / 2.70e+02  / 2.70e+02  / 1       / 1       / 1      
+Timer: Replicated::allreduce                             2.48e+01  / 2.57e+01  / 2.65e+01  / 10      / 10      / 10     
+Timer: Replicated::host_device_transfer                  4.66e+00  / 5.04e+00  / 5.53e+00  / 20      / 20      / 20     
+Timer: Replicated::memory_initialization                 4.45e-04  / 5.97e-04  / 9.50e-04  / 10      / 10      / 10     
+Timer: Replicated::host_array_allocation                 5.98e-03  / 7.47e-03  / 8.19e-03  / 10      / 10      / 10     
+Timer: Replicated::pre_rescale                           1.33e-01  / 3.03e-01  / 4.46e-01  / 10      / 10      / 10     
+Timer: Replicated::post_rescale                          9.93e-02  / 1.40e-01  / 1.70e-01  / 10      / 10      / 10     
+Timer: Replicated::single_schulz_delta                   1.59e+02  / 1.65e+02  / 1.68e+02  / 10      / 10      / 10     
+Timer: Matrix::compute_aTa                               4.18e-01  / 6.00e-01  / 8.52e-01  / 10      / 10      / 10     
+Timer: Matrix::matrix_matrix_multiply                    5.24e-01  / 8.70e-01  / 1.18e+00  / 10      / 10      / 10     
+Timer: Matrix::ortho                                     1.92e+02  / 1.98e+02  / 2.01e+02  / 10      / 10      / 10     
