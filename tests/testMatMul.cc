@@ -59,45 +59,45 @@ int main(int argc, char** argv)
 
     magma_int_t ld = magma_roundup(N, 32);
 
-    std::vector<double> A(N2, 2.0);
-    std::vector<double> B(N2, 3.0);
-    std::vector<double> C(N2, 0.0);
+    std::vector<float> A(N2, 2.0);
+    std::vector<float> B(N2, 3.0);
+    std::vector<float> C(N2, 0.0f);
 
     // std::cout<<"print A host"<<std::endl;
-    // magma_dprint(N,N,A.data(),N);
+    // magma_sprint(N,N,A.data(),N);
     // std::cout<<"print B host"<<std::endl;
-    // magma_dprint(N,N,B.data(),N);
+    // magma_sprint(N,N,B.data(),N);
 
-    double* dA;
-    double* dB;
-    double* dC;
+    float* dA;
+    float* dB;
+    float* dC;
 
-    magma_int_t retA = magma_dmalloc(&dA, ld * N);
-    magma_int_t retB = magma_dmalloc(&dB, ld * N);
-    magma_int_t retC = magma_dmalloc(&dC, ld * N);
+    magma_int_t retA = magma_smalloc(&dA, ld * N);
+    magma_int_t retB = magma_smalloc(&dB, ld * N);
+    magma_int_t retC = magma_smalloc(&dC, ld * N);
 
-    magma_dsetmatrix(N, N, A.data(), N, dA, ld, queue);
-    magma_dsetmatrix(N, N, B.data(), N, dB, ld, queue);
+    magma_ssetmatrix(N, N, A.data(), N, dA, ld, queue);
+    magma_ssetmatrix(N, N, B.data(), N, dB, ld, queue);
 
     time_init.stop();
 
     // std::cout<<"print A device rank="<<rank<<std::endl;
-    // magma_dprint_gpu(N,Nd,dA,ld,queue);
+    // magma_sprint_gpu(N,Nd,dA,ld,queue);
 
     // std::cout<<"print B device rank="<<rank<<std::endl;
-    // magma_dprint_gpu(N,Nd,dB,ld,queue);
+    // magma_sprint_gpu(N,Nd,dB,ld,queue);
 
     int j       = (rank + 1) % 2;
     int offset0 = (1 - j) * Nd * ld;
     int offset1 = j * Nd * ld;
 
     // warmup
-    magma_dsetmatrix(N, N, C.data(), N, dC, ld, queue);
+    magma_ssetmatrix(N, N, C.data(), N, dC, ld, queue);
     for (int i = 0; i < 10; i++)
     {
-        MPI_Irecv(dC + offset1, Nd * ld, MPI_DOUBLE, j, 2345 + j,
+        MPI_Irecv(dC + offset1, Nd * ld, MPI_FLOAT, j, 2345 + j,
             MPI_COMM_WORLD, &reqs[j]);
-        MPI_Issend(dC + offset0, Nd * ld, MPI_DOUBLE, j, 2345 + rank,
+        MPI_Issend(dC + offset0, Nd * ld, MPI_FLOAT, j, 2345 + rank,
             MPI_COMM_WORLD, &reqs[rank]);
         MPI_Waitall(2, reqs, MPI_STATUS_IGNORE);
     }
@@ -108,17 +108,17 @@ int main(int argc, char** argv)
     {
         time_comps.start();
 
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, N, N, N, 1.0, dA, ld, dB,
-            ld, 0.0, dC, ld, queue);
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, N, N, N, 1.0, dA, ld, dB,
+            ld, 0.0f, dC, ld, queue);
     }
     magma_queue_sync(queue);
 
     time_comps.stop();
 
     // std::cout<<"print C device single"<<std::endl;
-    // magma_dprint_gpu(N,N,dC,ld,queue);
+    // magma_sprint_gpu(N,N,dC,ld,queue);
 
-    magma_dsetmatrix(N, N, C.data(), N, dC, ld, queue);
+    magma_ssetmatrix(N, N, C.data(), N, dC, ld, queue);
 
     Timer time_compp("compute parallel");
     Timer time_comm("comm");
@@ -127,8 +127,8 @@ int main(int argc, char** argv)
     {
         time_compp.start();
 
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, N, Nd, N, 1.0, dA, ld,
-            dB + offset0, ld, 0.0, dC + offset0, ld, queue);
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, N, Nd, N, 1.0, dA, ld,
+            dB + offset0, ld, 0.0f, dC + offset0, ld, queue);
 
         magma_queue_sync(queue);
 
@@ -137,11 +137,11 @@ int main(int argc, char** argv)
         time_comm.start();
 
         // std::cout<<"print C device rank="<<rank<<std::endl;
-        // magma_dprint_gpu(N,Nd,dC+offset0,ld,queue);
+        // magma_sprint_gpu(N,Nd,dC+offset0,ld,queue);
 
-        MPI_Irecv(dC + offset1, Nd * ld, MPI_DOUBLE, j, 2345 + j,
+        MPI_Irecv(dC + offset1, Nd * ld, MPI_FLOAT, j, 2345 + j,
             MPI_COMM_WORLD, &reqs[j]);
-        MPI_Issend(dC + offset0, Nd * ld, MPI_DOUBLE, j, 2345 + rank,
+        MPI_Issend(dC + offset0, Nd * ld, MPI_FLOAT, j, 2345 + rank,
             MPI_COMM_WORLD, &reqs[rank]);
 
         MPI_Waitall(2, reqs, MPI_STATUS_IGNORE);
@@ -149,7 +149,7 @@ int main(int argc, char** argv)
         time_comm.stop();
     }
     // std::cout<<"print C device paralell rank="<<rank<<std::endl;
-    // magma_dprint_gpu(N,N,dC,ld,queue);
+    // magma_sprint_gpu(N,N,dC,ld,queue);
 
     magma_int_t ret_dA_free = magma_free(dA);
     magma_int_t ret_dB_free = magma_free(dB);

@@ -16,14 +16,14 @@ void warmup_MPI_pt2pt(MPI_Comm comm)
 
     const int n = 10000;
 
-    double* send_buffer;
-    double* recv_buffer;
+    float* send_buffer;
+    float* recv_buffer;
 #ifdef NCCL_COMM
-    cudaMalloc(&send_buffer, n * sizeof(double));
-    cudaMalloc(&recv_buffer, n * sizeof(double));
+    cudaMalloc(&send_buffer, n * sizeof(float));
+    cudaMalloc(&recv_buffer, n * sizeof(float));
 #else
-    send_buffer = new double[n];
-    recv_buffer = new double[n];
+    send_buffer = new float[n];
+    recv_buffer = new float[n];
 #endif
 
     for (int j = 0; j < 10; j++)
@@ -32,8 +32,8 @@ void warmup_MPI_pt2pt(MPI_Comm comm)
             int dst = (comm_rank + i + 1) % comm_size;
             int src = (comm_size + comm_rank - i - 1) % comm_size;
 
-            MPI_Irecv(send_buffer, n, MPI_DOUBLE, src, i, comm, &reqs[0]);
-            MPI_Issend(recv_buffer, n, MPI_DOUBLE, dst, i, comm, &reqs[1]);
+            MPI_Irecv(send_buffer, n, MPI_FLOAT, src, i, comm, &reqs[0]);
+            MPI_Issend(recv_buffer, n, MPI_FLOAT, dst, i, comm, &reqs[1]);
             MPI_Waitall(2, reqs, MPI_STATUS_IGNORE);
         }
 
@@ -52,9 +52,9 @@ void warmup_NCCL(ncclComm_t nccl_comm)
 {
     cudaStream_t s;
     cudaStreamCreate(&s);
-    double* dwork;
+    float* dwork;
     int datasize = 32 * 100;
-    cudaMalloc(&dwork, datasize * sizeof(double));
+    cudaMalloc(&dwork, datasize * sizeof(float));
     for (int i = 0; i < 10; i++)
     {
         ncclAllReduce(

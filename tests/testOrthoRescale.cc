@@ -63,7 +63,7 @@ int main(int argc, char** argv)
         Matrix B(nrows, ncols, lacomm, nccl_world_comm);
 
         A.randomInitialize();
-        A.scaleMatrix(0.01);
+        A.scaleMatrix(0.01f);
         A.printMatrix();
 
         B.identityInitialize();
@@ -72,9 +72,9 @@ int main(int argc, char** argv)
         A.matrixSum(B);
         A.printMatrix();
 
-        double dfo_before = 0.0;
-        double dfo_after  = 0.0;
-        const double toll = 1.e-8;
+        float dfo_before = 0.0f;
+        float dfo_after  = 0.0f;
+        const float toll = 1.e-8;
 
         // Perform the check on the departure from orthogonality before
         // re-orthogonalizing

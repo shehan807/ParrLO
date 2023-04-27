@@ -13,9 +13,9 @@
 #include "nccl.h"
 #endif
 
-double relativeDiscrepancy(size_t, size_t, const double*, const double*);
-double absoluteDiscrepancy(size_t, size_t, const double*, const double*);
-double discrepancy(size_t, size_t, const double*, const double*, std::string);
+float relativeDiscrepancy(size_t, size_t, const float*, const float*);
+float absoluteDiscrepancy(size_t, size_t, const float*, const float*);
+float discrepancy(size_t, size_t, const float*, const float*, std::string);
 
 class Replicated
 {
@@ -33,9 +33,9 @@ private:
 
     float** device_data_; // pointer to basic data structure
     float* auxiliary_device_data_;
-    std::vector<double> diagonal_;
+    std::vector<float> diagonal_;
 
-    double* device_inv_sqrt_diagonal_;
+    float* device_inv_sqrt_diagonal_;
 
     // flag to specify is object is responsible for releasing memory
     // associated with device_data_
@@ -62,7 +62,7 @@ private:
     static Timer conv_test_tm_;
 
     // compute eigenvectors and eigenvalues of matrix
-    void diagonalize(double* evecs, std::vector<double>& evals);
+    void diagonalize(float* evecs, std::vector<float>& evals);
 
     // sum up contributions from all MPI tasks
     void consolidate();
@@ -71,7 +71,7 @@ public:
     Replicated(const size_t dim, MPI_Comm, ncclComm_t, int verbosity = 0);
 
     // Build matrix with local (partial) contributions to matrix elements
-    Replicated(double**, size_t, MPI_Comm, ncclComm_t, int verbosity = 0);
+    Replicated(float**, size_t, MPI_Comm, ncclComm_t, int verbosity = 0);
 
     // Copy constructor
     Replicated(const Replicated& mat);
@@ -88,26 +88,26 @@ public:
     size_t getDim() const;
 
     // returns the pointer to a copy of the data
-    const double* getDeviceDataRawPtr() const;
+    const float* getDeviceDataRawPtr() const;
 
     // Visualization methods
     void printMatrix() const; // It is used to visualize the matrix
 
     // compute max norm of matrix
-    double maxNorm() const;
+    float maxNorm() const;
 
     // Initialize matrix with random values
     //(for testing purposes)
     void initializeRandomSymmetric();
 
     // rescale values in device_data_
-    void scale(const double);
+    void scale(const float);
 
     // add a Replicated matrix with scaling factor
-    void add(const double, const Replicated&);
+    void add(const float, const Replicated&);
 
     // set diagonal matrix with uniform value alpha
-    void setDiagonal(const double alpha);
+    void setDiagonal(const float alpha);
 
     // pre-rescaling of the Replicated matrix
     void preRescale();
@@ -116,16 +116,16 @@ public:
     void postRescale();
 
     // Coupled Schulz iteraion
-    int SchulzCoupled(unsigned int max_iter, double tol,
+    int SchulzCoupled(unsigned int max_iter, float tol,
         std::string convergence_check, int frequency_convergence_check);
 
     // Stabilized single Schulz iteraion
-    int SchulzStabilizedSingle(unsigned int max_iter, double tol,
+    int SchulzStabilizedSingle(unsigned int max_iter, float tol,
         std::string convergence_check, int frequency_convergence_check);
 
     // Stabilized single Schulz iteraion based on deltaZ
     int SchulzStabilizedSingleDelta(
-        unsigned int max_iter, double tol, MPI_Comm comm = MPI_COMM_NULL);
+        unsigned int max_iter, float tol, MPI_Comm comm = MPI_COMM_NULL);
 
     // Cholesky QR
     void CholeskyQR();
@@ -153,12 +153,12 @@ public:
 
     // Friend methods
     // Compute convergence criterion for Schulz iteration
-    friend double relativeDiscrepancy(
-        size_t, size_t, const double*, const double*);
-    friend double absoluteDiscrepancy(
-        size_t, size_t, const double*, const double*);
-    friend double discrepancy(
-        size_t, size_t, const double*, const double*, std::string);
+    friend float relativeDiscrepancy(
+        size_t, size_t, const float*, const float*);
+    friend float absoluteDiscrepancy(
+        size_t, size_t, const float*, const float*);
+    friend float discrepancy(
+        size_t, size_t, const float*, const float*, std::string);
 };
 
 #endif

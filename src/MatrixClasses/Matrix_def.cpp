@@ -48,14 +48,14 @@ Matrix::Matrix(size_t n, size_t m, MPI_Comm comm, ncclComm_t nccllacomm)
     }
 
     host_data_.resize(n_rows_local_ * n_cols_);
-    // host_data_.reset( new double[n_rows_ * n_cols_] );
+    // host_data_.reset( new float[n_rows_ * n_cols_] );
 
     // Allocate memory on gpu
     size_t ldda = magma_roundup(n_rows_local_, 32);
-    magma_dmalloc(&device_data_, ldda * n_cols_);
+    magma_smalloc(&device_data_, ldda * n_cols_);
     assert(device_data_ != nullptr);
 
-    magma_dmalloc(&d_work_, ldda * n_cols_);
+    magma_smalloc(&d_work_, ldda * n_cols_);
     assert(d_work_ != nullptr);
 }
 
@@ -118,7 +118,7 @@ void Matrix::transferDataCPUtoGPU()
     size_t ldda = magma_roundup(n_rows_local_, 32);
 
     // copy A to dA
-    magma_dsetmatrix(n_rows_local_, n_cols_, this->getHostDataRawPtr(), lda,
+    magma_ssetmatrix(n_rows_local_, n_cols_, this->getHostDataRawPtr(), lda,
         device_data_, ldda, queue);
     if (!device_data_initialized_) device_data_initialized_ = true;
     magma_queue_destroy(queue);
@@ -140,7 +140,7 @@ void Matrix::transferDataGPUtoCPU()
     size_t ldda = magma_roundup(n_rows_local_, 32);
 
     // copy dA to A
-    magma_dgetmatrix(
+    magma_sgetmatrix(
         n_rows_local_, n_cols_, device_data_, ldda, &host_data_[0], lda, queue);
     if (!host_data_initialized_) host_data_initialized_ = true;
 
@@ -173,7 +173,7 @@ void Matrix::operator=(const Matrix& B)
     host_data_initialized_ = true;
 }
 
-double Matrix::operator()(const size_t i, const size_t j) const
+float Matrix::operator()(const size_t i, const size_t j) const
 {
     // For now it is only a local access and it assumes that different
     // matrices are partitioned the same way
@@ -276,7 +276,7 @@ void Matrix::randomInitialize()
 }
 
 void Matrix::gaussianColumnsInitialize(
-    double standard_deviation, double center_displacement)
+    float standard_deviation, float center_displacement)
 {
     assert(!host_data_initialized_);
     assert(standard_deviation > 0.0);
@@ -288,8 +288,8 @@ void Matrix::gaussianColumnsInitialize(
     std::mt19937 gen(seed1);
     std::uniform_real_distribution<> dis(-1, +1);
 
-    double width_spread = static_cast<double>(n_rows_) / n_cols_;
-    double scaling_factor
+    float width_spread = static_cast<float>(n_rows_) / n_cols_;
+    float scaling_factor
         = 1. / (std::sqrt(2 * M_PI) * standard_deviation * width_spread);
 
     for (size_t j = 0; j < n_cols_; ++j)
@@ -306,8 +306,8 @@ void Matrix::gaussianColumnsInitialize(
         for (size_t i = 0; i < n_rows_local_; ++i)
         {
             size_t global_index = global_row_id_[i];
-            double exponent     = (static_cast<double>(global_index)
-                                  - static_cast<double>(gaussian_center))
+            float exponent     = (static_cast<float>(global_index)
+                                  - static_cast<float>(gaussian_center))
                               / (standard_deviation * width_spread);
             exponent *= exponent;
             exponent = -0.5 * exponent;
@@ -321,7 +321,7 @@ void Matrix::gaussianColumnsInitialize(
 }
 
 void Matrix::hatColumnsInitialize(
-    double support_length_ratio, double center_displacement)
+    float support_length_ratio, float center_displacement)
 {
     assert(!host_data_initialized_);
     assert((support_length_ratio > 0.0) & (support_length_ratio < 1.0));
@@ -334,7 +334,7 @@ void Matrix::hatColumnsInitialize(
     std::uniform_real_distribution<> dis(-1, +1);
 
     int row_center_displacement
-        = static_cast<int>((static_cast<double>(n_rows_) / n_cols_)
+        = static_cast<int>((static_cast<float>(n_rows_) / n_cols_)
                            * center_displacement * dis(gen));
 
     for (size_t j = 0; j < n_cols_; ++j)
@@ -346,17 +346,17 @@ void Matrix::hatColumnsInitialize(
             hat_center = hat_center + row_center_displacement;
 
         int beginning_support
-            = hat_center - int(support_length_ratio * double(n_rows_));
+            = hat_center - int(support_length_ratio * float(n_rows_));
         for (size_t i = 0; i < n_rows_local_; ++i)
         {
             size_t global_index = global_row_id_[i];
-            double hat_value    = 0.0;
+            float hat_value    = 0.0f;
             hat_value
                 = 1
-                  - static_cast<double>(
+                  - static_cast<float>(
                         std::abs(hat_center - int(global_index)))
-                        / static_cast<double>(hat_center - beginning_support);
-            hat_value                         = std::max(0.0, hat_value);
+                        / static_cast<float>(hat_center - beginning_support);
+            hat_value                         = std::max(0.0f, hat_value);
             host_data_[i + j * n_rows_local_] = hat_value;
         }
     }
@@ -369,33 +369,33 @@ size_t Matrix::getNumRows() const { return n_rows_; }
 size_t Matrix::getNumRowsLocal() const { return n_rows_local_; }
 size_t Matrix::getNumCols() const { return n_cols_; }
 
-std::vector<double> Matrix::getCopyHostData() const
+std::vector<float> Matrix::getCopyHostData() const
 {
-    std::vector<double> host_data_copy(host_data_.size(), 0.0);
+    std::vector<float> host_data_copy(host_data_.size(), 0.0);
     std::copy(host_data_.begin(), host_data_.end(), host_data_copy.begin());
 
     return host_data_copy;
 }
 
-const double* Matrix::getHostDataRawPtr() const
+const float* Matrix::getHostDataRawPtr() const
 {
     assert(host_data_.data() != nullptr);
     return host_data_.data();
 }
 
-const double* Matrix::getDeviceDataRawPtr() const
+const float* Matrix::getDeviceDataRawPtr() const
 {
     assert(device_data_ != nullptr);
     return device_data_;
 }
 
-double* Matrix::getHostDataRawPtrNonConst()
+float* Matrix::getHostDataRawPtrNonConst()
 {
     assert(host_data_.data() != nullptr);
     return host_data_.data();
 }
 
-double* Matrix::getDeviceDataRawPtrNonConst()
+float* Matrix::getDeviceDataRawPtrNonConst()
 {
     assert(device_data_ != nullptr);
     return device_data_;
@@ -421,9 +421,9 @@ void Matrix::printMatrix() const
     std::cout << "MPI process: " << comm_rank << " of " << comm_size
               << std::endl
               << std::flush;
-    // magma_dprint(n_rows_local_, n_cols_, this->getHostDataRawPtr(),
+    // magma_sprint(n_rows_local_, n_cols_, this->getHostDataRawPtr(),
     // n_rows_local_);
-    magma_dprint_gpu(
+    magma_sprint_gpu(
         n_rows_local_, n_cols_, this->getDeviceDataRawPtr(), ldda, queue);
 
     magma_queue_destroy(queue);
@@ -448,7 +448,7 @@ void Matrix::printMatrix() const
 #endif
 }
 
-double Matrix::computeFrobeniusNorm()
+float Matrix::computeFrobeniusNorm()
 {
     assert(host_data_.data() != nullptr);
 
@@ -456,19 +456,19 @@ double Matrix::computeFrobeniusNorm()
     MPI_Comm_rank(lacomm_, &comm_rank);
     MPI_Comm_size(lacomm_, &comm_size);
 
-    double frobSum    = 0.0;
-    double frobSumAll = 0.0;
-    double frobNorm   = 0.0;
+    float frobSum    = 0.0;
+    float frobSumAll = 0.0;
+    float frobNorm   = 0.0;
 
     std::for_each(host_data_.begin(), host_data_.end(),
-        [&frobSum](double x) { frobSum += x * x; });
-    MPI_Allreduce(&frobSum, &frobSumAll, 1, MPI_DOUBLE, MPI_SUM, lacomm_);
+        [&frobSum](float x) { frobSum += x * x; });
+    MPI_Allreduce(&frobSum, &frobSumAll, 1, MPI_FLOAT, MPI_SUM, lacomm_);
     frobNorm = std::sqrt(frobSumAll);
 
     return frobNorm;
 }
 
-void Matrix::scaleMatrix(double scale_factor)
+void Matrix::scaleMatrix(float scale_factor)
 {
 #ifdef USE_MAGMA
     magma_queue_t queue;
@@ -477,12 +477,12 @@ void Matrix::scaleMatrix(double scale_factor)
     magma_queue_create(device, &queue);
 
     size_t ldda = magma_roundup(n_rows_local_, 32);
-    magma_dscal(ldda * n_cols_, scale_factor, device_data_, 1, queue);
+    magma_sscal(ldda * n_cols_, scale_factor, device_data_, 1, queue);
     this->transferDataGPUtoCPU();
     magma_queue_destroy(queue);
 #else
     std::transform(host_data_.begin(), host_data_.end(), host_data_.begin(),
-        [scale_factor](double alpha) { return scale_factor * alpha; });
+        [scale_factor](float alpha) { return scale_factor * alpha; });
 #endif
 }
 
@@ -492,8 +492,8 @@ void Matrix::computeAtA()
     size_t m     = n_cols_;
     size_t n     = n_cols_;
     size_t k     = n_rows_local_;
-    double alpha = 1.0;
-    double beta  = 0.0;
+    float alpha = 1.0;
+    float beta  = 0.0;
 
 #ifdef USE_MAGMA
 
@@ -506,7 +506,7 @@ void Matrix::computeAtA()
     size_t lddb = magma_roundup(n_rows_local_, 32);
     size_t lddc = magma_roundup(n_cols_, 32);
 
-    if (replicated_S_ == nullptr) magma_dmalloc(&replicated_S_, lddc * n_cols_);
+    if (replicated_S_ == nullptr) magma_smalloc(&replicated_S_, lddc * n_cols_);
 
     magma_queue_t queue;
     int device;
@@ -517,7 +517,7 @@ void Matrix::computeAtA()
     compute_aTa_tm_.start();
 
     // Compute local contribution to A^T * A
-    magmablas_dgemm(transA, transB, m, n, k, alpha, device_data_, ldda,
+    magmablas_sgemm(transA, transB, m, n, k, alpha, device_data_, ldda,
         device_data_, lddb, beta, replicated_S_, lddc, queue);
     magma_queue_destroy(queue);
 
@@ -528,7 +528,7 @@ void Matrix::computeAtA()
 }
 
 int Matrix::orthogonalize(std::string method, bool diagonal_rescaling,
-    unsigned int max_iter, double tol, std::string implementation,
+    unsigned int max_iter, float tol, std::string implementation,
     const int ntasks, std::string convergence_check,
     int frequency_convergence_check)
 {
@@ -557,15 +557,15 @@ int Matrix::orthogonalize(std::string method, bool diagonal_rescaling,
 }
 
 int Matrix::orthogonalize_iterative_method(std::string method,
-    bool diagonal_rescaling, unsigned int max_iter, double tol,
+    bool diagonal_rescaling, unsigned int max_iter, float tol,
     std::string implementation, const int ntasks, std::string convergence_check,
     int frequency_convergcence_check)
 {
     // compute local contributions to Gram matrix
     computeAtA();
 
-    double alpha   = 1.0;
-    double beta    = 0.0;
+    float alpha   = 1.0;
+    float beta    = 0.0;
     int count_iter = 0;
 
 #ifdef USE_MAGMA
@@ -619,7 +619,7 @@ int Matrix::orthogonalize_iterative_method(std::string method,
     // Start timer for matrix-matrix multiply
     matrix_matrix_multiply_tm_.start();
 
-    magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, n_rows_local_, n_cols_, n_cols_,
+    magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, n_rows_local_, n_cols_, n_cols_,
         alpha, device_data_, ldda, replicated_S_, lddc, beta, d_work_, ldda,
         queue);
 
@@ -640,8 +640,8 @@ void Matrix::orthogonalize_direct_invsqrt()
     // compute local contributions to Gram matrix
     computeAtA();
 
-    double alpha = 1.0;
-    double beta  = 0.0;
+    float alpha = 1.0;
+    float beta  = 0.0;
 
 #ifdef USE_MAGMA
 
@@ -660,7 +660,7 @@ void Matrix::orthogonalize_direct_invsqrt()
     AtA.InvSqrt();
 
     // Restore orthogonality on columns of A
-    magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, n_rows_local_, n_cols_, n_cols_,
+    magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, n_rows_local_, n_cols_, n_cols_,
         alpha, device_data_, ldda, replicated_S_, lddc, beta, d_work_, ldda,
         queue);
 
@@ -676,8 +676,8 @@ void Matrix::orthogonalize_direct_cholesky()
     // compute local contributions to Gram matrix
     computeAtA();
 
-    double alpha = 1.0;
-    double beta  = 0.0;
+    float alpha = 1.0;
+    float beta  = 0.0;
 
 #ifdef USE_MAGMA
 
@@ -696,24 +696,24 @@ void Matrix::orthogonalize_direct_cholesky()
     AtA.CholeskyQR();
 
     // Restore orthogonality on columns of A
-    magma_dtrmm(MagmaRight, MagmaLower, MagmaTrans, MagmaNonUnit, n_rows_local_,
+    magma_strmm(MagmaRight, MagmaLower, MagmaTrans, MagmaNonUnit, n_rows_local_,
         n_cols_, alpha, replicated_S_, lddc, device_data_, ldda, queue);
 
     magma_queue_destroy(queue);
 #endif
 }
 
-double Matrix::orthogonalityCheck(bool diagonal_scaling)
+float Matrix::orthogonalityCheck(bool diagonal_scaling)
 {
 
     size_t m           = n_cols_;
     size_t n           = n_cols_;
     size_t k           = n_rows_local_;
-    double discrepancy = 1.0;
-    double alpha       = 1.0;
-    double beta        = 0.0;
-    std::vector<double> hC(n_cols_ * n_cols_, 0.0);
-    std::vector<double> hCsum(n_cols_ * n_cols_, 0.0);
+    float discrepancy = 1.0;
+    float alpha       = 1.0;
+    float beta        = 0.0;
+    std::vector<float> hC(n_cols_ * n_cols_, 0.0);
+    std::vector<float> hCsum(n_cols_ * n_cols_, 0.0);
     assert(&hC[0] != nullptr);
     assert(&hCsum[0] != nullptr);
     size_t ldc = n_cols_;
@@ -722,14 +722,14 @@ double Matrix::orthogonalityCheck(bool diagonal_scaling)
 
     magma_trans_t transA = MagmaTrans;
     magma_trans_t transB = MagmaNoTrans;
-    double *dC, *dI;
+    float *dC, *dI;
 
     size_t ldda = magma_roundup(n_rows_local_, 32);
     size_t lddb = magma_roundup(n_rows_local_, 32);
     size_t lddc = magma_roundup(n_cols_, 32);
 
-    magma_dmalloc(&dC, lddc * n_cols_);
-    magma_dmalloc(&dI, lddc * n_cols_);
+    magma_smalloc(&dC, lddc * n_cols_);
+    magma_smalloc(&dI, lddc * n_cols_);
 
     assert(dC != nullptr);
 
@@ -738,47 +738,47 @@ double Matrix::orthogonalityCheck(bool diagonal_scaling)
     magma_getdevice(&device);
     magma_queue_create(device, &queue);
 
-    magmablas_dgemm(transA, transB, m, n, k, alpha, this->getDeviceDataRawPtr(),
+    magmablas_sgemm(transA, transB, m, n, k, alpha, this->getDeviceDataRawPtr(),
         ldda, this->getDeviceDataRawPtr(), lddb, beta, dC, lddc, queue);
-    magma_dgetmatrix(n_cols_, n_cols_, dC, lddc, &hC[0], ldc, queue);
+    magma_sgetmatrix(n_cols_, n_cols_, dC, lddc, &hC[0], ldc, queue);
 
     // sum hC over all processors
     MPI_Allreduce(
-        &hC[0], &hCsum[0], n_cols_ * n_cols_, MPI_DOUBLE, MPI_SUM, lacomm_);
-    magma_dsetmatrix(n_cols_, n_cols_, &hCsum[0], ldc, dC, lddc, queue);
+        &hC[0], &hCsum[0], n_cols_ * n_cols_, MPI_FLOAT, MPI_SUM, lacomm_);
+    magma_ssetmatrix(n_cols_, n_cols_, &hCsum[0], ldc, dC, lddc, queue);
 
     // Diagonal rescaling of dC
     if (diagonal_scaling)
     {
         int info;
-        double* device_inv_sqrt_diagonal_;
-        magma_dmalloc(&device_inv_sqrt_diagonal_, lddc);
+        float* device_inv_sqrt_diagonal_;
+        magma_smalloc(&device_inv_sqrt_diagonal_, lddc);
 
         // Rescale the device_data_
-        std::vector<double> host_inv_sqrt_diagonal(n_cols_);
+        std::vector<float> host_inv_sqrt_diagonal(n_cols_);
 
         for (size_t i = 0; i < n_cols_; ++i)
             host_inv_sqrt_diagonal[i]
                 = 1. / std::sqrt(hCsum[i * (n_cols_ + 1)]);
 
-        magma_dsetvector(n_cols_, &host_inv_sqrt_diagonal[0], 1,
+        magma_ssetvector(n_cols_, &host_inv_sqrt_diagonal[0], 1,
             device_inv_sqrt_diagonal_, 1, queue);
 
         // Compute D^(-1/2)*S
-        magmablas_dlascl2(MagmaFull, n_cols_, n_cols_,
+        magmablas_slascl2(MagmaFull, n_cols_, n_cols_,
             device_inv_sqrt_diagonal_, dC, lddc, queue, &info);
 
         // Compute (D^(-1/2)*S)^T = S * D^(-1/2)
-        magmablas_dtranspose_inplace(n_cols_, dC, lddc, queue);
+        magmablas_stranspose_inplace(n_cols_, dC, lddc, queue);
 
         // Compute D^(-1/2) * S * D^(-1/2)
-        magmablas_dlascl2(MagmaFull, n_cols_, n_cols_,
+        magmablas_slascl2(MagmaFull, n_cols_, n_cols_,
             device_inv_sqrt_diagonal_, dC, lddc, queue, &info);
         magma_free(device_inv_sqrt_diagonal_);
     }
 
     // Initialize identity matrix
-    magmablas_dlaset(MagmaFull, n_cols_, n_cols_, 0.0, 1.0, dI, lddc, queue);
+    magmablas_slaset(MagmaFull, n_cols_, n_cols_, 0.0, 1.0, dI, lddc, queue);
 
     discrepancy = relativeDiscrepancy(n_cols_, n_cols_, dC, dI);
 
@@ -797,9 +797,9 @@ void Matrix::matrixSum(Matrix& B)
     assert(n_rows_ == B.getNumRows());
     assert(n_cols_ == B.getNumCols());
 
-    // double* hA = this->getCopyRawPtrData();
+    // float* hA = this->getCopyRawPtrData();
     // std::cout<<"Printing hA: "<<std::endl;
-    // magma_dprint(n_rows_, n_cols_, hA, n_rows_);
+    // magma_sprint(n_rows_, n_cols_, hA, n_rows_);
 #ifdef USE_MAGMA
     //        magma_init();
 
@@ -813,7 +813,7 @@ void Matrix::matrixSum(Matrix& B)
 
     assert(this->initialized());
     assert(B.initialized());
-    magmablas_dgeadd(n_rows_local_, n_cols_, 1.0, B.getDeviceDataRawPtr(), lddb,
+    magmablas_sgeadd(n_rows_local_, n_cols_, 1.0, B.getDeviceDataRawPtr(), lddb,
         this->getDeviceDataRawPtrNonConst(), ldda, queue);
     this->transferDataGPUtoCPU();
 

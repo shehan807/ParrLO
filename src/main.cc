@@ -74,15 +74,15 @@ int main(int argc, char** argv)
 
         std::vector<int> idata;
         std::string iwavefunctions_type;
-        double iwavefunctions_center_displacement = 0.0;
-        double iwavefunctions_width               = 0.8;
-        double irescaling;
+        float iwavefunctions_center_displacement = 0.0;
+        float iwavefunctions_width               = 0.8;
+        float irescaling;
         int inum_runs;
         bool idiagonal_rescaling;
         std::string iortho_type;
         int imax_iterations;
         int intasks;
-        double itolerance;
+        float itolerance;
         std::string iconvergence_check   = "relative";
         int ifrequency_convergence_check = 1;
         std::string iimplementation;
@@ -105,12 +105,12 @@ int main(int argc, char** argv)
                 po::value<int>()->required(),
                 "number of matrix columns")("ColumnsType.wavefunctions_type",
                 po::value<std::string>()->required(), "wavefunction type")(
-                "ColumnsCenter.displacement", po::value<double>()->required(),
+                "ColumnsCenter.displacement", po::value<float>()->required(),
                 "displacement ratio for the center of the wave functions")(
                 "ColumnsWidth.wavefunctions_width",
-                po::value<double>()->required(),
+                po::value<float>()->required(),
                 "width ratio for the extension of the wave functions")(
-                "Rescaling.rescaling", po::value<double>()->required(),
+                "Rescaling.rescaling", po::value<float>()->required(),
                 "rescaling for perturbation from orthogonality")(
                 "DiagonalRescaling.rescaling", po::value<bool>()->required(),
                 "rescaling for Schulz iteration")(
@@ -120,7 +120,7 @@ int main(int argc, char** argv)
                 po::value<int>()->default_value(1), "number of runs")(
                 "Schulz_iteration.max_iterations", po::value<int>()->required(),
                 "maximum number of iterations allowed for Schulz algorithm")(
-                "Schulz_iteration.tolerance", po::value<double>()->required(),
+                "Schulz_iteration.tolerance", po::value<float>()->required(),
                 "stopping tolerance for Schulz algorithm")(
                 "Schulz_iteration.implementation",
                 po::value<std::string>()->default_value("original"),
@@ -169,15 +169,15 @@ int main(int argc, char** argv)
             iwavefunctions_type
                 = vm["ColumnsType.wavefunctions_type"].as<std::string>();
             iwavefunctions_width
-                = vm["ColumnsWidth.wavefunctions_width"].as<double>();
+                = vm["ColumnsWidth.wavefunctions_width"].as<float>();
             iwavefunctions_center_displacement
-                = vm["ColumnsCenter.displacement"].as<double>();
-            irescaling          = vm["Rescaling.rescaling"].as<double>();
+                = vm["ColumnsCenter.displacement"].as<float>();
+            irescaling          = vm["Rescaling.rescaling"].as<float>();
             idiagonal_rescaling = vm["DiagonalRescaling.rescaling"].as<bool>();
             iortho_type = vm["Orthogonalization.method_type"].as<std::string>();
             inum_runs   = vm["Orthogonalization.num_runs"].as<int>();
             imax_iterations = vm["Schulz_iteration.max_iterations"].as<int>();
-            itolerance      = vm["Schulz_iteration.tolerance"].as<double>();
+            itolerance      = vm["Schulz_iteration.tolerance"].as<float>();
             iimplementation
                 = vm["Schulz_iteration.implementation"].as<std::string>();
             intasks = vm["Schulz_iteration.ntasks"].as<int>();
@@ -196,11 +196,11 @@ int main(int argc, char** argv)
         MPI_Bcast(idata.data(), nidata, MPI_INT, 0, MPI_COMM_WORLD);
         int wave_string_length = iwavefunctions_type.length();
         MPI_Bcast(&wave_string_length, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&iwavefunctions_width, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&iwavefunctions_center_displacement, 1, MPI_DOUBLE, 0,
+        MPI_Bcast(&iwavefunctions_width, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(&iwavefunctions_center_displacement, 1, MPI_FLOAT, 0,
             MPI_COMM_WORLD);
         MPI_Bcast(&inum_runs, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&irescaling, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+        MPI_Bcast(&irescaling, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(&idiagonal_rescaling, 1, MPI_C_BOOL, 0, MPI_COMM_WORLD);
         int ortho_string_length = iortho_type.length();
         MPI_Bcast(&ortho_string_length, 1, MPI_INT, 0, MPI_COMM_WORLD);
@@ -274,7 +274,7 @@ int main(int argc, char** argv)
 
         MPI_Bcast(&imax_iterations, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Bcast(&intasks, 1, MPI_INT, 0, MPI_COMM_WORLD);
-        MPI_Bcast(&itolerance, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+        MPI_Bcast(&itolerance, 1, MPI_FLOAT, 0, MPI_COMM_WORLD);
         MPI_Bcast(&ifrequency_convergence_check, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
         Timer matrix_time("matrix_ortho");
@@ -314,8 +314,8 @@ int main(int argc, char** argv)
 
         Matrix A(nrows, ncols, MPI_COMM_WORLD, nccl_world_comm);
 
-        double standard_deviation = iwavefunctions_width;
-        double support_length     = iwavefunctions_width;
+        float standard_deviation = iwavefunctions_width;
+        float support_length     = iwavefunctions_width;
 
         if (iwavefunctions_type == "gaussian")
             A.gaussianColumnsInitialize(
@@ -329,7 +329,7 @@ int main(int argc, char** argv)
             if (step) A.transferDataCPUtoGPU();
             // Perform the check on the departure from orthogonality before
             // re-orthogonalizing
-            double departure_from_orthogonality = 0.0;
+            float departure_from_orthogonality = 0.0;
             departure_from_orthogonality
                 = A.orthogonalityCheck(idiagonal_rescaling);
 

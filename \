@@ -55,6 +55,9 @@ int main(int argc, char** argv)
 
     // deepcopy from host to device
     magma_ssetmatrix(N, N, v1.data(), N, dv1, ld, queue);
+    for (i=0; i<N2; i++){
+    	std::cout << "v[i]: " << v1[i] << std::endl; 	
+    }
     // calculation on device
     magma_sscal(N * ld, alpha, dv1, 1, queue);
     

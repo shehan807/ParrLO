@@ -75,7 +75,7 @@ int main(int argc, char** argv)
     Replicated C(B);
 
     C.InvSqrt();
-    const double normC = C.maxNorm();
+    const float normC = C.maxNorm();
     if (std::isnan(normC))
     {
         std::cout << "Max Norm of C is NaN!!!" << std::endl;
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 
     B.add(-1., C);
 
-    const double normdiff = B.maxNorm();
+    const float normdiff = B.maxNorm();
     std::cout << "Norm Difference: " << normdiff << std::endl;
     std::cout << "Iterations for Schulz iteration to converge: " << count_iter
               << std::endl;
@@ -96,7 +96,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    const double tol = 1.e-6;
+    const float tol = 1.e-6;
     std::cout << "Difference:\n";
     B.printMatrix();
 

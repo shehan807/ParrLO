@@ -25,7 +25,7 @@ Timer Replicated::single_schulz_delta_tm_("Replicated::single_schulz_delta");
 Timer Replicated::choleskyqr_tm_("Replicated::cholesky_qr");
 Timer Replicated::conv_test_tm_("Replicated::convergence_test");
 
-double relativeDiscrepancy(size_t n, size_t m, const double* A, const double* B)
+float relativeDiscrepancy(size_t n, size_t m, const float* A, const float* B)
 {
     magma_queue_t queue;
     int device;
@@ -36,30 +36,30 @@ double relativeDiscrepancy(size_t n, size_t m, const double* A, const double* B)
     magma_getdevice(&device);
     magma_queue_create(device, &queue2);
 
-    double normA = 0.0;
-    double normC = 0.0;
+    float normA = 0.0;
+    float normC = 0.0;
 
 #ifdef USE_MAGMA
     assert(A != nullptr);
     assert(B != nullptr);
 
     size_t lddc = magma_roundup(n, 32);
-    double* C;
-    magma_dmalloc(&C, lddc * m);
+    float* C;
+    magma_smalloc(&C, lddc * m);
 
     magma_norm_t matrix_norm = MagmaOneNorm;
-    double* dwork;
-    magma_dmalloc(&dwork, lddc);
+    float* dwork;
+    magma_smalloc(&dwork, lddc);
 
     // Compute norm of A
-    normA = magmablas_dlange(matrix_norm, n, m, A, lddc, dwork, lddc, queue);
+    normA = magmablas_slange(matrix_norm, n, m, A, lddc, dwork, lddc, queue);
 
     // Compute C = A-B
-    magma_dcopymatrix(n, m, B, lddc, C, lddc, queue2);
-    magmablas_dgeadd2(n, m, 1.0, A, lddc, -1.0, C, lddc, queue2);
+    magma_scopymatrix(n, m, B, lddc, C, lddc, queue2);
+    magmablas_sgeadd2(n, m, 1.0, A, lddc, -1.0, C, lddc, queue2);
 
     // Compute norm of C = A-B
-    normC = magmablas_dlange(matrix_norm, n, m, C, lddc, dwork, lddc, queue2);
+    normC = magmablas_slange(matrix_norm, n, m, C, lddc, dwork, lddc, queue2);
 
     magma_free(C);
     magma_free(dwork);
@@ -70,7 +70,7 @@ double relativeDiscrepancy(size_t n, size_t m, const double* A, const double* B)
     return normC / normA;
 }
 
-double absoluteDiscrepancy(size_t n, size_t m, const double* A, const double* B)
+float absoluteDiscrepancy(size_t n, size_t m, const float* A, const float* B)
 {
     magma_queue_t queue;
     int device;
@@ -81,26 +81,26 @@ double absoluteDiscrepancy(size_t n, size_t m, const double* A, const double* B)
     magma_getdevice(&device);
     magma_queue_create(device, &queue2);
 
-    double normC = 0.0;
+    float normC = 0.0;
 
 #ifdef USE_MAGMA
     assert(A != nullptr);
     assert(B != nullptr);
 
     size_t lddc = magma_roundup(n, 32);
-    double* C;
-    magma_dmalloc(&C, lddc * m);
+    float* C;
+    magma_smalloc(&C, lddc * m);
 
     magma_norm_t matrix_norm = MagmaOneNorm;
-    double* dwork;
-    magma_dmalloc(&dwork, lddc);
+    float* dwork;
+    magma_smalloc(&dwork, lddc);
 
     // Compute C = A-B
-    magma_dcopymatrix(n, m, B, lddc, C, lddc, queue2);
-    magmablas_dgeadd2(n, m, 1.0, A, lddc, -1.0, C, lddc, queue2);
+    magma_scopymatrix(n, m, B, lddc, C, lddc, queue2);
+    magmablas_sgeadd2(n, m, 1.0, A, lddc, -1.0, C, lddc, queue2);
 
     // Compute norm of C = A-B
-    normC = magmablas_dlange(matrix_norm, n, m, C, lddc, dwork, lddc, queue2);
+    normC = magmablas_slange(matrix_norm, n, m, C, lddc, dwork, lddc, queue2);
 
     magma_free(C);
     magma_free(dwork);
@@ -111,10 +111,10 @@ double absoluteDiscrepancy(size_t n, size_t m, const double* A, const double* B)
     return normC;
 }
 
-double discrepancy(
-    size_t n, size_t m, const double* A, const double* B, std::string type)
+float discrepancy(
+    size_t n, size_t m, const float* A, const float* B, std::string type)
 {
-    double value = 0.0;
+    float value = 0.0;
 
     if (type == "relative")
         value = relativeDiscrepancy(n, m, A, B);
@@ -133,7 +133,7 @@ Replicated::Replicated(
 
     magma_smalloc(&auxiliary_device_data_, dim_ * ld);
     device_data_ = &auxiliary_device_data_;
-    magma_dmalloc(&device_inv_sqrt_diagonal_, dim_);
+    magma_smalloc(&device_inv_sqrt_diagonal_, dim_);
 
     diagonal_.resize(dim_);
     for (size_t i = 0; i < dim_; ++i)
@@ -142,7 +142,7 @@ Replicated::Replicated(
     own_data_ = true;
 }
 
-Replicated::Replicated(double** partial, size_t dim, MPI_Comm comm,
+Replicated::Replicated(float** partial, size_t dim, MPI_Comm comm,
     ncclComm_t ncclcomm, int verbosity)
     : dim_(dim), lacomm_(comm), nccllacomm_(ncclcomm), verbosity_(verbosity)
 {
@@ -150,7 +150,7 @@ Replicated::Replicated(double** partial, size_t dim, MPI_Comm comm,
     own_data_         = false;
 
     device_data_ = partial;
-    magma_dmalloc(&device_inv_sqrt_diagonal_, dim_);
+    magma_smalloc(&device_inv_sqrt_diagonal_, dim_);
 
     diagonal_.resize(dim_);
     for (size_t i = 0; i < dim_; ++i)
@@ -165,9 +165,9 @@ Replicated::Replicated(const Replicated& mat)
 {
     size_t ld = magma_roundup(dim_, 32);
 
-    magma_dmalloc(&auxiliary_device_data_, dim_ * ld);
+    magma_smalloc(&auxiliary_device_data_, dim_ * ld);
     device_data_ = &auxiliary_device_data_;
-    magma_dmalloc(&device_inv_sqrt_diagonal_, dim_);
+    magma_smalloc(&device_inv_sqrt_diagonal_, dim_);
     own_data_ = true;
 
     magma_queue_t queue;
@@ -182,7 +182,7 @@ Replicated::Replicated(const Replicated& mat)
     // Start timer for matrix copy
     copy_tm_.start();
 
-    magma_dcopymatrix(
+    magma_scopymatrix(
         dim_, dim_, *(mat.device_data_), ld, *(device_data_), ld, queue);
 
     // Stop timer for matrix copy
@@ -220,7 +220,7 @@ bool Replicated::initialized() const { return data_initialized_; }
 
 size_t Replicated::getDim() const { return dim_; }
 
-const double* Replicated::getDeviceDataRawPtr() const
+const float* Replicated::getDeviceDataRawPtr() const
 {
     assert(*device_data_ != nullptr);
     return *device_data_;
@@ -244,7 +244,7 @@ void Replicated::printMatrix() const
 
     std::cout << "MPI process: " << comm_rank << " of " << comm_size
               << std::endl;
-    magma_dprint_gpu(dim_, dim_, this->getDeviceDataRawPtr(), lddc, queue);
+    magma_sprint_gpu(dim_, dim_, this->getDeviceDataRawPtr(), lddc, queue);
 #else
     if (comm_rank == 0)
         std::cout << "Basic implementation of print" << std::endl;
@@ -264,7 +264,7 @@ void Replicated::printMatrix() const
 #endif
 }
 
-void Replicated::scale(const double alpha)
+void Replicated::scale(const float alpha)
 {
     magma_queue_t queue;
     int device;
@@ -276,7 +276,7 @@ void Replicated::scale(const double alpha)
     // Start rescale timer
     rescale_tm_.start();
 
-    magma_dscal(dim_ * ld, alpha, *device_data_, 1, queue);
+    magma_sscal(dim_ * ld, alpha, *device_data_, 1, queue);
 
     // Stop rescale timer
     rescale_tm_.stop();
@@ -284,7 +284,7 @@ void Replicated::scale(const double alpha)
     magma_queue_destroy(queue);
 }
 
-void Replicated::add(const double alpha, const Replicated& dA)
+void Replicated::add(const float alpha, const Replicated& dA)
 {
     magma_queue_t queue;
     int device;
@@ -293,25 +293,25 @@ void Replicated::add(const double alpha, const Replicated& dA)
 
     size_t ld = magma_roundup(dim_, 32);
 
-    magmablas_dgeadd(
+    magmablas_sgeadd(
         dim_, dim_, alpha, *(dA.device_data_), ld, *device_data_, ld, queue);
 
     magma_queue_destroy(queue);
 }
 
-double Replicated::maxNorm() const
+float Replicated::maxNorm() const
 {
     magma_queue_t queue;
     int device;
     magma_getdevice(&device);
     magma_queue_create(device, &queue);
 
-    double* dwork;
-    magma_dmalloc(&dwork, dim_);
+    float* dwork;
+    magma_smalloc(&dwork, dim_);
 
     size_t ld = magma_roundup(dim_, 32);
 
-    double norm = magmablas_dlange(
+    float norm = magmablas_slange(
         MagmaMaxNorm, dim_, dim_, *device_data_, ld, dwork, dim_, queue);
 
     magma_queue_destroy(queue);
@@ -332,7 +332,7 @@ void Replicated::preRescale()
     size_t lddc = magma_roundup(dim_, 32);
 
     // Rescale the device_data_
-    std::vector<double> host_inv_sqrt_diagonal(dim_);
+    std::vector<float> host_inv_sqrt_diagonal(dim_);
 
     for (size_t i = 0; i < dim_; ++i)
         host_inv_sqrt_diagonal[i] = 1. / std::sqrt(diagonal_[i]);
@@ -340,21 +340,21 @@ void Replicated::preRescale()
     // Start timer for memory allocation
     memory_initialization_tm_.start();
 
-    magma_dsetvector(dim_, &host_inv_sqrt_diagonal[0], 1,
+    magma_ssetvector(dim_, &host_inv_sqrt_diagonal[0], 1,
         device_inv_sqrt_diagonal_, 1, queue);
 
     // Stop timer for memory allocation
     memory_initialization_tm_.stop();
 
     // Compute D^(-1/2)*S
-    magmablas_dlascl2(MagmaFull, dim_, dim_, device_inv_sqrt_diagonal_,
+    magmablas_slascl2(MagmaFull, dim_, dim_, device_inv_sqrt_diagonal_,
         *device_data_, lddc, queue, &info);
 
     // Compute (D^(-1/2)*S)^T = S * D^(-1/2)
-    magmablas_dtranspose_inplace(dim_, *device_data_, lddc, queue);
+    magmablas_stranspose_inplace(dim_, *device_data_, lddc, queue);
 
     // Compute D^(-1/2) * S * D^(-1/2)
-    magmablas_dlascl2(MagmaFull, dim_, dim_, device_inv_sqrt_diagonal_,
+    magmablas_slascl2(MagmaFull, dim_, dim_, device_inv_sqrt_diagonal_,
         *device_data_, lddc, queue, &info);
 
     magma_queue_destroy(queue);
@@ -373,7 +373,7 @@ void Replicated::postRescale()
     size_t lddc = magma_roundup(dim_, 32);
 
     // Compute D^(-1/2) * S_tilde
-    magmablas_dlascl2(MagmaFull, dim_, dim_, device_inv_sqrt_diagonal_,
+    magmablas_slascl2(MagmaFull, dim_, dim_, device_inv_sqrt_diagonal_,
         *device_data_, lddc, queue, &info);
 
     magma_queue_destroy(queue);
@@ -381,12 +381,12 @@ void Replicated::postRescale()
     post_rescale_tm_.stop();
 }
 
-int Replicated::SchulzCoupled(unsigned int max_iter, double tol,
+int Replicated::SchulzCoupled(unsigned int max_iter, float tol,
     std::string convergence_check, int frequency_convergence_check)
 {
     float alpha             = 1.0;
     float beta              = 0.0;
-    double discrepancy_check = 1.0;
+    float discrepancy_check = 1.0;
     size_t lddc              = magma_roundup(dim_, 32);
     unsigned int count_iter  = 0;
 
@@ -506,12 +506,12 @@ int Replicated::SchulzCoupled(unsigned int max_iter, double tol,
     return count_iter;
 }
 
-int Replicated::SchulzStabilizedSingle(unsigned int max_iter, double tol,
+int Replicated::SchulzStabilizedSingle(unsigned int max_iter, float tol,
     std::string convergence_check, int frequency_convergence_check)
 {
-    double alpha             = 1.0;
-    double beta              = 0.0;
-    double discrepancy_check = 1.0;
+    float alpha             = 1.0;
+    float beta              = 0.0;
+    float discrepancy_check = 1.0;
     size_t lddc              = magma_roundup(dim_, 32);
     unsigned int count_iter  = 0;
 
@@ -524,24 +524,24 @@ int Replicated::SchulzStabilizedSingle(unsigned int max_iter, double tol,
     magma_queue_create(device, &queue);
 
     // Implementation of Schulz iteration
-    double* dI;
-    double *dZ, *dY, *dZaux;
-    double* dZY;
+    float* dI;
+    float *dZ, *dY, *dZaux;
+    float* dZY;
 
     // Start timer for memory initialization
     memory_initialization_tm_.start();
 
-    magma_dmalloc(&dI, lddc * dim_);
-    magma_dmalloc(&dY, lddc * dim_);
-    magma_dmalloc(&dZ, lddc * dim_);
-    magma_dmalloc(&dZaux, lddc * dim_);
-    magma_dmalloc(&dZY, lddc * dim_);
+    magma_smalloc(&dI, lddc * dim_);
+    magma_smalloc(&dY, lddc * dim_);
+    magma_smalloc(&dZ, lddc * dim_);
+    magma_smalloc(&dZaux, lddc * dim_);
+    magma_smalloc(&dZY, lddc * dim_);
 
     // Stop timer for memory initialization
     memory_initialization_tm_.stop();
 
-    magmablas_dlaset(MagmaFull, dim_, dim_, 0.0, 1.0, dI, lddc, queue);
-    magmablas_dlaset(MagmaFull, dim_, dim_, 0.0, 1.0, dZ, lddc, queue);
+    magmablas_slaset(MagmaFull, dim_, dim_, 0.0, 1.0, dI, lddc, queue);
+    magmablas_slaset(MagmaFull, dim_, dim_, 0.0, 1.0, dZ, lddc, queue);
 
     // Start timer for Schulz iteration
     single_schulz_iteration_tm_.start();
@@ -549,18 +549,18 @@ int Replicated::SchulzStabilizedSingle(unsigned int max_iter, double tol,
     while ((count_iter < max_iter) & (discrepancy_check > tol))
     {
         // Compute Y = A*Z
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha,
             *device_data_, lddc, dZ, lddc, beta, dY, lddc, queue);
 
         // Compute Z^T*Y for stabilization
-        magmablas_dgemm(MagmaTrans, MagmaNoTrans, dim_, dim_, dim_, alpha, dZ,
+        magmablas_sgemm(MagmaTrans, MagmaNoTrans, dim_, dim_, dim_, alpha, dZ,
             lddc, dY, lddc, beta, dZY, lddc, queue);
 
         // Compute 0.5*(3I-ZY)
-        magmablas_dgeadd2(dim_, dim_, 1.5, dI, lddc, -0.5, dZY, lddc, queue);
+        magmablas_sgeadd2(dim_, dim_, 1.5, dI, lddc, -0.5, dZY, lddc, queue);
 
         // Compute 0.5*(3I-ZY)Z
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha,
             dZY, lddc, dZ, lddc, beta, dZaux, lddc, queue);
 
         // Compute discrepancy between consecutive updates of dZ for convergence
@@ -572,7 +572,7 @@ int Replicated::SchulzStabilizedSingle(unsigned int max_iter, double tol,
                 = discrepancy(dim_, dim_, dZ, dZaux, convergence_check);
         conv_test_tm_.stop();
 
-        double* dZtemp = dZ;
+        float* dZtemp = dZ;
         dZ             = dZaux;
         dZaux          = dZtemp;
 
@@ -613,11 +613,11 @@ int Replicated::SchulzStabilizedSingle(unsigned int max_iter, double tol,
 }
 
 int Replicated::SchulzStabilizedSingleDelta(
-    unsigned int max_iter, double tol, MPI_Comm comm)
+    unsigned int max_iter, float tol, MPI_Comm comm)
 {
     single_schulz_delta_tm_.start();
 
-    double discrepancy_check = 1.e8;
+    float discrepancy_check = 1.e8;
     size_t lddc              = magma_roundup(dim_, 32);
     unsigned int count_iter  = 0;
 
@@ -651,50 +651,50 @@ int Replicated::SchulzStabilizedSingleDelta(
     magma_getdevice(&device);
     magma_queue_create(device, &queue);
 
-    double* dT1;
-    double* dT2;
-    double* dZ;
+    float* dT1;
+    float* dT2;
+    float* dZ;
 
-    magma_dmalloc(&dT1, lddc * dim_);
-    magma_dmalloc(&dT2, lddc * dim_);
-    magma_dmalloc(&dZ, lddc * dim_);
+    magma_smalloc(&dT1, lddc * dim_);
+    magma_smalloc(&dT2, lddc * dim_);
+    magma_smalloc(&dZ, lddc * dim_);
 
     // set initial Z to identity
-    magmablas_dlaset(MagmaFull, dim_, dim_, 0.0, 1.0, dZ, lddc, queue);
+    magmablas_slaset(MagmaFull, dim_, dim_, 0.0, 1.0, dZ, lddc, queue);
 
     magma_norm_t matrix_norm = MagmaOneNorm;
 
     while ((count_iter < max_iter) & (discrepancy_check > tol))
     {
         // Compute T1 = Z*Z
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, Nd, dim_, 1., dZ,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, Nd, dim_, 1., dZ,
             lddc, dZ + offset, lddc, 0., dT1 + offset, lddc, queue);
         // Compute T2 = S*T1
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, Nd, dim_, 1.,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, Nd, dim_, 1.,
             *device_data_, lddc, dT1 + offset, lddc, 0., dT2 + offset, lddc,
             queue);
         // Compute T1 = Z^T*T2
-        magmablas_dgemm(MagmaTrans, MagmaNoTrans, dim_, Nd, dim_, 1., dZ, lddc,
+        magmablas_sgemm(MagmaTrans, MagmaNoTrans, dim_, Nd, dim_, 1., dZ, lddc,
             dT2 + offset, lddc, 0., dT1 + offset, lddc, queue);
         // Compute T1 <- 0.5*(Z-T1)
-        magmablas_dgeadd2(
+        magmablas_sgeadd2(
             dim_, Nd, 0.5, dZ + offset, lddc, -0.5, dT1 + offset, lddc, queue);
         // norm(Z)
-        double normZ = magmablas_dlange(matrix_norm, dim_, Nd, dZ + offset,
+        float normZ = magmablas_slange(matrix_norm, dim_, Nd, dZ + offset,
             lddc, dT2 + offset, lddc, queue);
         // norm(delta Z)
-        double normDeltaZ = magmablas_dlange(matrix_norm, dim_, Nd,
+        float normDeltaZ = magmablas_slange(matrix_norm, dim_, Nd,
             dT1 + offset, lddc, dT2 + offset, lddc, queue);
         magma_queue_sync(queue);
 
         // add delta Z to "old" Z
-        magmablas_dgeadd2(
+        magmablas_sgeadd2(
             dim_, Nd, 1., dT1 + offset, lddc, 1., dZ + offset, lddc, queue);
 
         if (comm_size > 0)
         {
-            double tmp1[2] = { normZ, normDeltaZ };
-            double tmp2[2];
+            float tmp1[2] = { normZ, normDeltaZ };
+            float tmp2[2];
 #ifdef NCCL_COMM
             cudaStream_t s;
             cudaStreamCreate(&s);
@@ -705,7 +705,7 @@ int Replicated::SchulzStabilizedSingleDelta(
             cudaStreamSynchronize(s);
             cudaStreamDestroy(s);
 #else
-            MPI_Allreduce(&tmp1[0], &tmp2[0], 2, MPI_DOUBLE, MPI_MAX, comm);
+            MPI_Allreduce(&tmp1[0], &tmp2[0], 2, MPI_FLOAT, MPI_MAX, comm);
 #endif
             normZ      = tmp2[0];
             normDeltaZ = tmp2[1];
@@ -717,10 +717,10 @@ int Replicated::SchulzStabilizedSingleDelta(
         {
             int dst = (comm_rank + i + 1) % comm_size;
             int src = (comm_size + comm_rank - i - 1) % comm_size;
-            MPI_Irecv(dZ + offset_remote[i], Nd * lddc, MPI_DOUBLE, src, i,
+            MPI_Irecv(dZ + offset_remote[i], Nd * lddc, MPI_FLOAT, src, i,
                 comm, &reqs[0]);
             MPI_Issend(
-                dZ + offset, Nd * lddc, MPI_DOUBLE, dst, i, comm, &reqs[1]);
+                dZ + offset, Nd * lddc, MPI_FLOAT, dst, i, comm, &reqs[1]);
             MPI_Waitall(2, reqs, MPI_STATUS_IGNORE);
         }
        	
@@ -753,7 +753,7 @@ void Replicated::initializeRandomSymmetric()
     std::uniform_real_distribution<> dis(-1, 1);
 
     // initialize random matrix on CPU
-    std::vector<double> work(dim_ * dim_);
+    std::vector<float> work(dim_ * dim_);
 
     for (size_t j = 0; j < dim_; ++j)
     {
@@ -771,7 +771,7 @@ void Replicated::initializeRandomSymmetric()
     magma_queue_create(device, &queue);
 
     // copy work to device_data_
-    magma_dsetmatrix(dim_, dim_, work.data(), dim_, *device_data_, ld, queue);
+    magma_ssetmatrix(dim_, dim_, work.data(), dim_, *device_data_, ld, queue);
 
     magma_queue_destroy(queue);
 
@@ -788,14 +788,14 @@ void Replicated::reset()
     size_t ld = magma_roundup(dim_, 32);
 
     // set diagonal and offdiagonal values to 0.
-    magmablas_dlaset(MagmaFull, dim_, dim_, 0., 0., *device_data_, ld, queue);
+    magmablas_slaset(MagmaFull, dim_, dim_, 0., 0., *device_data_, ld, queue);
 
     magma_queue_destroy(queue);
 
     data_initialized_ = true;
 }
 
-void Replicated::setDiagonal(const double alpha)
+void Replicated::setDiagonal(const float alpha)
 {
     magma_queue_t queue;
     int device;
@@ -805,7 +805,7 @@ void Replicated::setDiagonal(const double alpha)
     size_t ld = magma_roundup(dim_, 32);
 
     // set offdiag values to 0, diag to alpha
-    magmablas_dlaset(
+    magmablas_slaset(
         MagmaFull, dim_, dim_, 0., alpha, *device_data_, ld, queue);
 
     magma_queue_destroy(queue);
@@ -813,7 +813,7 @@ void Replicated::setDiagonal(const double alpha)
     data_initialized_ = true;
 }
 
-void Replicated::diagonalize(double* evecs, std::vector<double>& evals)
+void Replicated::diagonalize(float* evecs, std::vector<float>& evals)
 {
     int info;
 
@@ -827,15 +827,15 @@ void Replicated::diagonalize(double* evecs, std::vector<double>& evals)
     int lwork  = 2 * dim_ + dim_ * magma_get_ssytrd_nb(dim_);
     int liwork = 3 + 5 * dim_;
 
-    std::vector<double> wa(dim_ * dim_);
-    std::vector<double> work(lwork);
+    std::vector<float> wa(dim_ * dim_);
+    std::vector<float> work(lwork);
     std::vector<int> iwork(liwork);
 
     // copy matrix into evecs
-    magmablas_dlacpy(
+    magmablas_slacpy(
         MagmaFull, dim_, dim_, *device_data_, ld, evecs, ld, queue);
 
-    magma_dsyevd_gpu(MagmaVec, MagmaUpper, dim_, evecs, ld, evals.data(),
+    magma_ssyevd_gpu(MagmaVec, MagmaUpper, dim_, evecs, ld, evals.data(),
         wa.data(), dim_, work.data(), lwork, iwork.data(), liwork, &info);
 
     magma_queue_destroy(queue);
@@ -854,15 +854,15 @@ void Replicated::CholeskyQR()
     size_t lddc = magma_roundup(dim_, 32);
 
     // Compute  Cholesky factor on GPU, i.e. L
-    magma_dpotrf_gpu(MagmaLower, dim_, *device_data_, lddc, &info);
+    magma_spotrf_gpu(MagmaLower, dim_, *device_data_, lddc, &info);
     if (info != 0)
-        std::cerr << "magma_dpotrf_gpu failed, info = " << info << std::endl;
+        std::cerr << "magma_spotrf_gpu failed, info = " << info << std::endl;
 
     // Compute inverse of lower triangular Choleksy factor on GPU, i.e. L^(-1)
-    magma_dtrtri_gpu(
+    magma_strtri_gpu(
         MagmaLower, MagmaNonUnit, dim_, *device_data_, lddc, &info);
     if (info != 0)
-        std::cerr << "magma_dtrtri_gpu failed, info = " << info << std::endl;
+        std::cerr << "magma_strtri_gpu failed, info = " << info << std::endl;
 
     magma_queue_destroy(queue);
 
@@ -871,22 +871,22 @@ void Replicated::CholeskyQR()
 
 void Replicated::InvSqrt()
 {
-    double* evecs;
+    float* evecs;
     size_t ld = magma_roundup(dim_, 32);
 
-    magma_int_t ret = magma_dmalloc(&evecs, dim_ * ld);
+    magma_int_t ret = magma_smalloc(&evecs, dim_ * ld);
     assert(ret == MAGMA_SUCCESS);
 
-    double* work;
-    ret = magma_dmalloc(&work, dim_ * ld);
+    float* work;
+    ret = magma_smalloc(&work, dim_ * ld);
     assert(ret == MAGMA_SUCCESS);
 
-    std::vector<double> evals(dim_);
+    std::vector<float> evals(dim_);
 
     diagonalize(evecs, evals);
 
     std::transform(evals.begin(), evals.end(), evals.begin(),
-        [](double alpha) { return 1. / sqrt(alpha); });
+        [](float alpha) { return 1. / sqrt(alpha); });
 
     // set matrix values to 0.
     reset();
@@ -897,13 +897,13 @@ void Replicated::InvSqrt()
     magma_queue_create(device, &queue);
 
     // set diagonal values to evals
-    magma_dsetvector(dim_, evals.data(), 1, *device_data_, ld + 1, queue);
+    magma_ssetvector(dim_, evals.data(), 1, *device_data_, ld + 1, queue);
 
     // multiply diagonal matrix right and left by matrix
     // of eigenvectors
-    magmablas_dgemm(MagmaNoTrans, MagmaTrans, dim_, dim_, dim_, 1.,
+    magmablas_sgemm(MagmaNoTrans, MagmaTrans, dim_, dim_, dim_, 1.,
         *device_data_, ld, evecs, ld, 0., work, ld, queue);
-    magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, 1., evecs, ld,
+    magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, 1., evecs, ld,
         work, ld, 0., *device_data_, ld, queue);
 
     magma_free(evecs);
@@ -916,7 +916,7 @@ void Replicated::InvSqrt()
 void Replicated::consolidate()
 {
     magma_int_t ld = magma_roundup(dim_, 32);
-    magma_device_t device;
+    magma_sevice_t device;
     magma_queue_t queue;
 
     magma_getdevice(&device);
@@ -938,9 +938,9 @@ void Replicated::consolidate()
     // Stop timer to measure time spent in MPI_Allreduce
     allreduce_tm_.stop();
 
-    std::vector<double> hCsum_h(dim_);
+    std::vector<float> hCsum_h(dim_);
 
-    magma_dgetvector(dim_, *device_data_, ld + 1, hCsum_h.data(), 1, queue);
+    magma_sgetvector(dim_, *device_data_, ld + 1, hCsum_h.data(), 1, queue);
 
     // Extract the diagonal matrix of the replicated matrix
     for (size_t i = 0; i < dim_; ++i)
@@ -948,7 +948,7 @@ void Replicated::consolidate()
     if (verbosity_ > 0)
     {
         std::cout << "Printing matrix after MPI_Allreduce SUM:" << std::endl;
-        magma_dprint_gpu(dim_, dim_, *device_data_, ld, queue);
+        magma_sprint_gpu(dim_, dim_, *device_data_, ld, queue);
     }
 
     magma_queue_destroy(queue);
@@ -960,8 +960,8 @@ void Replicated::consolidate()
     // Start timer for array allocation on host
     host_array_allocation_tm_.start();
 
-    double* hC = new double[dim_ * dim_];
-    double* hCsum = new double[dim_ * dim_];
+    float* hC = new float[dim_ * dim_];
+    float* hCsum = new float[dim_ * dim_];
 
     // Stop timer for vector allocation on host
     host_array_allocation_tm_.stop();
@@ -977,7 +977,7 @@ void Replicated::consolidate()
     host_device_transfer_tm_.start();
 
     // copy from GPU to CPU
-    magma_dgetmatrix(dim_, dim_, *device_data_, ld, &hC[0], dim_, queue);
+    magma_sgetmatrix(dim_, dim_, *device_data_, ld, &hC[0], dim_, queue);
 
     // Stop timer for host-device transfer
     host_device_transfer_tm_.stop();
@@ -986,7 +986,7 @@ void Replicated::consolidate()
     allreduce_tm_.start();
 
     // replicated matrix data is sum of all partial matrices
-    MPI_Allreduce(hC, hCsum, dim_ * dim_, MPI_DOUBLE, MPI_SUM, lacomm_);
+    MPI_Allreduce(hC, hCsum, dim_ * dim_, MPI_FLOAT, MPI_SUM, lacomm_);
 
     // Stop timer to measure time spent in MPI_Allreduce
     allreduce_tm_.stop();
@@ -994,7 +994,7 @@ void Replicated::consolidate()
     // Start timer for host-device transfer
     host_device_transfer_tm_.start();
 
-    magma_dsetmatrix(dim_, dim_, hCsum, dim_, *device_data_, ld, queue);
+    magma_ssetmatrix(dim_, dim_, hCsum, dim_, *device_data_, ld, queue);
 
     // Stop timer for host-device transfer
     host_device_transfer_tm_.stop();
@@ -1006,7 +1006,7 @@ void Replicated::consolidate()
     if (verbosity_ > 0)
     {
         std::cout << "Printing matrix after MPI_Allreduce SUM:" << std::endl;
-        magma_dprint_gpu(dim_, dim_, *device_data_, ld, queue);
+        magma_sprint_gpu(dim_, dim_, *device_data_, ld, queue);
     }
 
     delete[] hC;

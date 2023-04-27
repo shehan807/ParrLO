@@ -13,10 +13,10 @@ int main(int argc, char** argv)
     const int n  = 10;
     const int n2 = n * n;
 
-    double alpha = 2.;
+    float alpha = 2.;
 
     // build vector of values on CPU
-    std::vector<double> v1(n2);
+    std::vector<float> v1(n2);
     for (auto& it : v1)
     {
         it = 1.5;
@@ -50,25 +50,25 @@ int main(int argc, char** argv)
 
     magma_queue_create(device, &queue);
 
-    double* dv1;
-    magma_int_t ret = magma_dmalloc(&dv1, ld * n);
+    float* dv1;
+    magma_int_t ret = magma_smalloc(&dv1, ld * n);
     if (ret != MAGMA_SUCCESS)
     {
-        std::cerr << "magma_dmalloc FAILED!!!" << std::endl;
+        std::cerr << "magma_smalloc FAILED!!!" << std::endl;
         return 1;
     }
     // set data on GPU
-    magma_dsetmatrix(n, n, &v1[0], n, dv1, ld, queue);
+    magma_ssetmatrix(n, n, &v1[0], n, dv1, ld, queue);
 
     // rescale data on GPU
-    magma_dscal(n * ld, alpha, dv1, 1, queue);
+    magma_sscal(n * ld, alpha, dv1, 1, queue);
 
     // get result copy on CPU
-    magma_dgetmatrix(n, n, dv1, ld, &v1[0], n, queue);
+    magma_sgetmatrix(n, n, dv1, ld, &v1[0], n, queue);
 
-    magma_dprint(n, n, &v1[0], n);
+    magma_sprint(n, n, &v1[0], n);
 
-    const double tol = 1.e-12;
+    const float tol = 1.e-12;
     for (auto ii : v1)
     {
         if (std::abs(v1[ii] - 3.) > tol)

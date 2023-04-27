@@ -29,15 +29,15 @@ int main(int argc, char** argv)
     constexpr size_t N  = 10;
     constexpr size_t N2 = N * N;
 
-    constexpr double alpha = 2.0;
+    constexpr float alpha = 2.0;
 
-    std::vector<double> v1(N2);
+    std::vector<float> v1(N2);
     for (auto& it : v1)
     {
         it = 1.0 * rank;
     }
 
-    std::vector<double> vsum(N2, 0.0);
+    std::vector<float> vsum(N2, 0.0f);
 
 #ifdef USE_MAGMA
     magma_int_t magmalog = magma_init();
@@ -60,16 +60,16 @@ int main(int argc, char** argv)
 
     magma_queue_create(device, &queue);
 
-    double* dv1;
-    double* dvsum;
-    magma_int_t ret1   = magma_dmalloc(&dv1, ld * N);
-    magma_int_t retsum = magma_dmalloc(&dvsum, ld * N);
+    float* dv1;
+    float* dvsum;
+    magma_int_t ret1   = magma_smalloc(&dv1, ld * N);
+    magma_int_t retsum = magma_smalloc(&dvsum, ld * N);
 
     // deepcopy from host to device
-    magma_dsetmatrix(N, N, v1.data(), N, dv1, ld, queue);
+    magma_ssetmatrix(N, N, v1.data(), N, dv1, ld, queue);
 
     // calculation on device
-    magma_dscal(N * ld, alpha, dv1, 1, queue);
+    magma_sscal(N * ld, alpha, dv1, 1, queue);
 
     // mpi Allreduce with device
     // ncclAllReduce(dv1, dvsum, N * ld, ncclDouble, ncclSum, nccl_world_comm,
@@ -79,17 +79,17 @@ int main(int argc, char** argv)
     cudaStreamSynchronize(s);
 
     // deepcopy from device to host
-    // magma_dgetmatrix(N, N, dvsum, ld, vsum.data(), N, queue);
-    magma_dgetmatrix(N, N, dv1, ld, v1.data(), N, queue);
+    // magma_sgetmatrix(N, N, dvsum, ld, vsum.data(), N, queue);
+    magma_sgetmatrix(N, N, dv1, ld, v1.data(), N, queue);
 
     // print from host
-    // magma_dprint(N,N,v1.data(),N);
-    // magma_dprint(N,N,vsum.data(),N);
+    // magma_sprint(N,N,v1.data(),N);
+    // magma_sprint(N,N,vsum.data(),N);
 
     int check;
     check = (int)alpha * (size - 1) * size / 2;
 
-    for (double result : v1)
+    for (float result : v1)
     {
         if ((int)result != check) return 1;
     }

@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 
     A.printMatrix();
 
-    double norm = A.maxNorm();
+    float norm = A.maxNorm();
 
     std::cout << "Max Norm of A = " << norm << std::endl;
 
