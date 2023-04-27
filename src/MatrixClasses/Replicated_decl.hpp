@@ -31,8 +31,8 @@ private:
     ncclComm_t nccllacomm_ = NULL;
 #endif
 
-    double** device_data_; // pointer to basic data structure
-    double* auxiliary_device_data_;
+    float** device_data_; // pointer to basic data structure
+    float* auxiliary_device_data_;
     std::vector<double> diagonal_;
 
     double* device_inv_sqrt_diagonal_;

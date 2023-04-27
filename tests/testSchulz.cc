@@ -82,7 +82,9 @@ int main(int argc, char** argv)
         return 1;
     }
 
+    // *** MODIFY SCHULZCOUPLED Operator for Single Precision
     int count_iter = B.SchulzCoupled(20, 1.e-6, "relative", 1);
+    // *** MODIFY SCHULZCOUPLED Operator for Single Precision
 
     B.add(-1., C);
 

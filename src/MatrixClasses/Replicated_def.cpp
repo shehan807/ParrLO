@@ -131,7 +131,7 @@ Replicated::Replicated(
     data_initialized_ = false;
     size_t ld         = magma_roundup(dim_, 32);
 
-    magma_dmalloc(&auxiliary_device_data_, dim_ * ld);
+    magma_smalloc(&auxiliary_device_data_, dim_ * ld);
     device_data_ = &auxiliary_device_data_;
     magma_dmalloc(&device_inv_sqrt_diagonal_, dim_);
 
@@ -384,8 +384,8 @@ void Replicated::postRescale()
 int Replicated::SchulzCoupled(unsigned int max_iter, double tol,
     std::string convergence_check, int frequency_convergence_check)
 {
-    double alpha             = 1.0;
-    double beta              = 0.0;
+    float alpha             = 1.0;
+    float beta              = 0.0;
     double discrepancy_check = 1.0;
     size_t lddc              = magma_roundup(dim_, 32);
     unsigned int count_iter  = 0;
@@ -399,37 +399,37 @@ int Replicated::SchulzCoupled(unsigned int max_iter, double tol,
     magma_queue_create(device, &queue);
 
     // Implementation of Schulz iteration
-    double* dI;
-    double *dY, *dYaux;
-    double *dZ, *dZaux;
-    double* dZY;
-    double* dIntermediate;
+    float* dI;
+    float *dY, *dYaux;
+    float *dZ, *dZaux;
+    float* dZY;
+    float* dIntermediate;
 
     // Start timer for memory initialization
     memory_initialization_tm_.start();
 
-    magma_dmalloc(&dI, lddc * dim_);
-    magma_dmalloc(&dY, lddc * dim_);
-    magma_dmalloc(&dZ, lddc * dim_);
-    magma_dmalloc(&dYaux, lddc * dim_);
-    magma_dmalloc(&dZaux, lddc * dim_);
-    magma_dmalloc(&dZY, lddc * dim_);
-    magma_dmalloc(&dIntermediate, lddc * dim_);
+    magma_smalloc(&dI, lddc * dim_);
+    magma_smalloc(&dY, lddc * dim_);
+    magma_smalloc(&dZ, lddc * dim_);
+    magma_smalloc(&dYaux, lddc * dim_);
+    magma_smalloc(&dZaux, lddc * dim_);
+    magma_smalloc(&dZY, lddc * dim_);
+    magma_smalloc(&dIntermediate, lddc * dim_);
 
     // Stop timer for memory initialization
     memory_initialization_tm_.stop();
 
-    magmablas_dlaset(MagmaFull, lddc, dim_, 0.0, 1.0, dI, lddc, queue);
+    magmablas_slaset(MagmaFull, lddc, dim_, 0.0, 1.0, dI, lddc, queue);
 
     // Start timer for memory copy
     copy_tm_.start();
 
-    magma_dcopymatrix(dim_, dim_, *device_data_, lddc, dY, lddc, queue);
+    magma_scopymatrix(dim_, dim_, *device_data_, lddc, dY, lddc, queue);
 
     // Stop timer for memory copy
     copy_tm_.stop();
 
-    magmablas_dlaset(MagmaFull, lddc, dim_, 0.0, 1.0, dZ, lddc, queue);
+    magmablas_slaset(MagmaFull, lddc, dim_, 0.0, 1.0, dZ, lddc, queue);
 
     // Start timer for Schulz iteration
     schulz_iteration_tm_.start();
@@ -437,25 +437,25 @@ int Replicated::SchulzCoupled(unsigned int max_iter, double tol,
     while ((count_iter < max_iter) & (discrepancy_check > tol))
     {
         // Compute ZY
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha, dZ,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha, dZ,
             lddc, dY, lddc, beta, dZY, lddc, queue);
 
         // Compute 1.5*I-0.5*ZY
         copy_tm_.start();
-        magma_dcopymatrix(dim_, dim_, dZY, lddc, dIntermediate, lddc, queue);
+        magma_scopymatrix(dim_, dim_, dZY, lddc, dIntermediate, lddc, queue);
         copy_tm_.stop();
-        magmablas_dgeadd2(
+        magmablas_sgeadd2(
             dim_, dim_, 1.5, dI, lddc, -0.5, dIntermediate, lddc, queue);
 
         // Compute Y(1.5*I-0.5*ZY)
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha, dY,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha, dY,
             lddc, dIntermediate, lddc, beta, dYaux, lddc, queue);
 
         // Compute (1.5*I-0.5*ZY)Z
-        magmablas_dgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha,
+        magmablas_sgemm(MagmaNoTrans, MagmaNoTrans, dim_, dim_, dim_, alpha,
             dIntermediate, lddc, dZ, lddc, beta, dZaux, lddc, queue);
 
-        double* dYtemp = dY;
+        float* dYtemp = dY;
         dY             = dYaux;
         dYaux          = dYtemp;
 
@@ -467,10 +467,14 @@ int Replicated::SchulzCoupled(unsigned int max_iter, double tol,
                 = discrepancy(dim_, dim_, dZ, dZaux, convergence_check);
         conv_test_tm_.stop();
 
-        double* dZtemp = dZ;
+        float* dZtemp = dZ;
         dZ             = dZaux;
         dZaux          = dZtemp;
 
+	// Print out all iterations discrepancy
+       	std::cout << "%%% Schulz Iteration Number %%% : " << count_iter << std::endl; 
+       	std::cout << "%%% Schulz Discrepancy Check %%% : " << discrepancy_check << std::endl; 
+        count_iter++;
         count_iter++;
     }
 
@@ -572,7 +576,12 @@ int Replicated::SchulzStabilizedSingle(unsigned int max_iter, double tol,
         dZ             = dZaux;
         dZaux          = dZtemp;
 
+	// Print out all iterations discrepancy
+       	std::cout << "%%% Schulz Iteration Number %%% : " << count_iter << std::endl; 
+       	std::cout << "%%% Schulz Discrepancy Check %%% : " << discrepancy_check << std::endl; 
         count_iter++;
+	
+	count_iter++;
     }
 
     MPI_Barrier(MPI_COMM_WORLD);
@@ -714,9 +723,12 @@ int Replicated::SchulzStabilizedSingleDelta(
                 dZ + offset, Nd * lddc, MPI_DOUBLE, dst, i, comm, &reqs[1]);
             MPI_Waitall(2, reqs, MPI_STATUS_IGNORE);
         }
+       	
+	// Print out all iterations discrepancy
+       	std::cout << "%%% Schulz Iteration Information %%% : " << count_iter << " : " << discrepancy_check << std::endl; 
         count_iter++;
     }
-
+    
     // Pointer swapping to overwrite aTa with the inverse square root
     std::swap(dZ, *device_data_);
 
