@@ -106,6 +106,9 @@ cd build
 
 cmake -DBUILD_FOR_GPU=ON -DCMAKE_EXE_LINKER_FLAGS="${CUDA_LIB} -lcudart -lcudadevrt -lcublas -lcusparse -L${BOOSTROOT}/lib/libboost_program_options.so" ..
 make -j16 
+
+## run main script
+srun ./build/src/main -c ./benchmarks/main/input.cfg
 ```
 
 ## Running validation tests (sample shell script)
