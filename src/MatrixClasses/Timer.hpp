@@ -17,19 +17,19 @@ class Timer
 private:
     clock_t clk_;
     std::string name_;
-    float t_;
-    float total_cpu_;
-    float total_real_;
+    double t_;
+    double total_cpu_;
+    double total_real_;
     bool running_;
     int ncalls_;
 
     MPI_Comm comm_;
 
-    float cpu() const
+    double cpu() const
     {
         if (running_)
         {
-            return total_cpu_ + ((float)(clock() - clk_)) / CLOCKS_PER_SEC;
+            return total_cpu_ + ((double)(clock() - clk_)) / CLOCKS_PER_SEC;
         }
         else
         {
@@ -37,9 +37,9 @@ private:
         }
     };
 
-    float gtod(void) const;
+    double gtod(void) const;
 
-    float real() const
+    double real() const
     {
         if (running_)
         {
@@ -90,7 +90,7 @@ public:
 #endif
             if (running_)
             {
-                total_cpu_ += ((float)(clock() - clk_)) / CLOCKS_PER_SEC;
+                total_cpu_ += ((double)(clock() - clk_)) / CLOCKS_PER_SEC;
                 total_real_ += gtod() - t_;
                 running_ = false;
             }
