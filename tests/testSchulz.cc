@@ -57,18 +57,18 @@ int main(int argc, char** argv)
     tstime.start();
 
     // dimension of matrix
-    const int n = 10;
+    const int n = 100;
 
     Replicated A(n, MPI_COMM_WORLD, nccl_world_comm);
 
     // initialize with random values in interval [-0.1,0.1]
     A.initializeRandomSymmetric();
-    A.scale(0.1);
+    A.scale(0.1f);
 
     Replicated B(n, MPI_COMM_WORLD, nccl_world_comm);
 
-    B.setDiagonal(1.);
-    B.add(0.1, A);
+    B.setDiagonal(1.0f);
+    B.add(0.1f, A);
     B.printMatrix();
 
     // C is a copy of B
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
     int count_iter = B.SchulzCoupled(20, 1.e-6, "relative", 1);
     // *** MODIFY SCHULZCOUPLED Operator for Single Precision
 
-    B.add(-1., C);
+    B.add(-1.0f, C);
 
     const float normdiff = B.maxNorm();
     std::cout << "Norm Difference: " << normdiff << std::endl;

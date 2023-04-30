@@ -17,15 +17,15 @@ int main(int argc, char** argv)
     constexpr size_t N  = 10;
     constexpr size_t N2 = N * N;
 
-    constexpr float alpha = 2.0;
+    constexpr double alpha = 2.0;
 
-    std::vector<float> v1(N2);
+    std::vector<double> v1(N2);
     for (auto& it : v1)
     {
-        it = 1.0f * rank;
+        it = 1.0 * rank;
     }
 
-    std::vector<float> vsum(N2, 0.0f);
+    std::vector<double> vsum(N2, 0.0);
 
 #ifdef USE_MAGMA
     magma_int_t magmalog = magma_init();
@@ -48,41 +48,41 @@ int main(int argc, char** argv)
 
     magma_queue_create(device, &queue);
 
-    float* dv1;
-    float* dvsum;
-    magma_int_t ret1   = magma_smalloc(&dv1, ld * N);
-    magma_int_t retsum = magma_smalloc(&dvsum, ld * N);
+    double* dv1;
+    double* dvsum;
+    magma_int_t ret1   = magma_dmalloc(&dv1, ld * N);
+    magma_int_t retsum = magma_dmalloc(&dvsum, ld * N);
 
     // deepcopy from host to device
-    magma_ssetmatrix(N, N, v1.data(), N, dv1, ld, queue);
+    magma_dsetmatrix(N, N, v1.data(), N, dv1, ld, queue);
     // calculation on device
-    magma_sscal(N * ld, alpha, dv1, 1, queue);
+    magma_dscal(N * ld, alpha, dv1, 1, queue);
     
     std::cout << "MAGMA (finished sscal)" << std::endl;
     std::cout << "dv[0]: " << dv1[0] << std::endl; 
     // mpi Allreduce with device
-    // MPI_Allreduce(dv1, dvsum, N * ld, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD);
+    // MPI_Allreduce(dv1, dvsum, N * ld, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
     MPI_Allreduce(
-        MPI_IN_PLACE, dv1, N * ld, MPI_FLOAT, MPI_SUM, MPI_COMM_WORLD);
+        MPI_IN_PLACE, dv1, N * ld, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
     std::cout << "MAGMA (finished allreduce)" << std::endl;
 
     // deepcopy from device to host
-    magma_sgetmatrix(N, N, dv1, ld, v1.data(), N, queue);
-    // magma_sgetmatrix(N, N, dvsum, ld, vsum.data(), N, queue);
+    magma_dgetmatrix(N, N, dv1, ld, v1.data(), N, queue);
+    // magma_dgetmatrix(N, N, dvsum, ld, vsum.data(), N, queue);
 
     // mpi Allreduce with host
-    // MPI_Allreduce(v1.data(), vsum.data(), N2, MPI_FLOAT, MPI_SUM,
+    // MPI_Allreduce(v1.data(), vsum.data(), N2, MPI_DOUBLE, MPI_SUM,
     // MPI_COMM_WORLD);
 
     // print from host
-    // magma_sprint(N,N,v1.data(),N);
-    // magma_sprint(N,N,vsum.data(),N);
+    // magma_dprint(N,N,v1.data(),N);
+    // magma_dprint(N,N,vsum.data(),N);
 
     // check the results
     int check;
     check = (int)alpha * (size - 1) * size / 2;
 
-    for (float result : v1)
+    for (double result : v1)
     {
         if ((int)result != check) return 1;
     }
