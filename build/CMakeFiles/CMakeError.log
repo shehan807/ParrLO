@@ -1,38 +1,38 @@
 Determining if the function sgemm_ exists failed with the following output:
 Change Dir: /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/bin/gmake -f Makefile cmTC_df150/fast && /bin/gmake  -f CMakeFiles/cmTC_df150.dir/build.make CMakeFiles/cmTC_df150.dir/build
+Run Build Command(s):/bin/gmake -f Makefile cmTC_f4b82/fast && /bin/gmake  -f CMakeFiles/cmTC_f4b82.dir/build.make CMakeFiles/cmTC_f4b82.dir/build
 gmake[1]: Entering directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_df150.dir/CheckFunctionExists.cxx.o
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++   -DCHECK_FUNCTION_EXISTS=sgemm_ -std=gnu++11 -o CMakeFiles/cmTC_df150.dir/CheckFunctionExists.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_df150
-/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df150.dir/link.txt --verbose=1
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -DCHECK_FUNCTION_EXISTS=sgemm_  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_df150.dir/CheckFunctionExists.cxx.o -o cmTC_df150 
-CMakeFiles/cmTC_df150.dir/CheckFunctionExists.cxx.o: In function `main':
+Building CXX object CMakeFiles/cmTC_f4b82.dir/CheckFunctionExists.cxx.o
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++   -DCHECK_FUNCTION_EXISTS=sgemm_ -std=gnu++11 -o CMakeFiles/cmTC_f4b82.dir/CheckFunctionExists.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_f4b82
+/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f4b82.dir/link.txt --verbose=1
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -DCHECK_FUNCTION_EXISTS=sgemm_  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_f4b82.dir/CheckFunctionExists.cxx.o -o cmTC_f4b82 
+CMakeFiles/cmTC_f4b82.dir/CheckFunctionExists.cxx.o: In function `main':
 CheckFunctionExists.cxx:(.text+0x10): undefined reference to `sgemm_'
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [cmTC_df150] Error 1
+gmake[1]: *** [cmTC_f4b82] Error 1
 gmake[1]: Leaving directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-gmake: *** [cmTC_df150/fast] Error 2
+gmake: *** [cmTC_f4b82/fast] Error 2
 
 
 
 Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/bin/gmake -f Makefile cmTC_de22b/fast && /bin/gmake  -f CMakeFiles/cmTC_de22b.dir/build.make CMakeFiles/cmTC_de22b.dir/build
+Run Build Command(s):/bin/gmake -f Makefile cmTC_c5344/fast && /bin/gmake  -f CMakeFiles/cmTC_c5344.dir/build.make CMakeFiles/cmTC_c5344.dir/build
 gmake[1]: Entering directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_de22b.dir/src.cxx.o
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++11 -o CMakeFiles/cmTC_de22b.dir/src.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_de22b
-/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de22b.dir/link.txt --verbose=1
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_de22b.dir/src.cxx.o -o cmTC_de22b 
-/bin/ld: CMakeFiles/cmTC_de22b.dir/src.cxx.o: undefined reference to symbol 'pthread_cancel@@GLIBC_2.2.5'
+Building CXX object CMakeFiles/cmTC_c5344.dir/src.cxx.o
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++11 -o CMakeFiles/cmTC_c5344.dir/src.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_c5344
+/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5344.dir/link.txt --verbose=1
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_c5344.dir/src.cxx.o -o cmTC_c5344 
+/bin/ld: CMakeFiles/cmTC_c5344.dir/src.cxx.o: undefined reference to symbol 'pthread_cancel@@GLIBC_2.2.5'
 //usr/lib64/libpthread.so.0: error adding symbols: DSO missing from command line
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [cmTC_de22b] Error 1
+gmake[1]: *** [cmTC_c5344] Error 1
 gmake[1]: Leaving directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-gmake: *** [cmTC_de22b/fast] Error 2
+gmake: *** [cmTC_c5344/fast] Error 2
 
 
 Source file was:
@@ -59,37 +59,37 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/bin/gmake -f Makefile cmTC_caea3/fast && /bin/gmake  -f CMakeFiles/cmTC_caea3.dir/build.make CMakeFiles/cmTC_caea3.dir/build
+Run Build Command(s):/bin/gmake -f Makefile cmTC_03f54/fast && /bin/gmake  -f CMakeFiles/cmTC_03f54.dir/build.make CMakeFiles/cmTC_03f54.dir/build
 gmake[1]: Entering directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_caea3.dir/CheckFunctionExists.cxx.o
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu++11 -o CMakeFiles/cmTC_caea3.dir/CheckFunctionExists.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_caea3
-/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_caea3.dir/link.txt --verbose=1
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -DCHECK_FUNCTION_EXISTS=pthread_create  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_caea3.dir/CheckFunctionExists.cxx.o -o cmTC_caea3  -lpthreads 
+Building CXX object CMakeFiles/cmTC_03f54.dir/CheckFunctionExists.cxx.o
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=gnu++11 -o CMakeFiles/cmTC_03f54.dir/CheckFunctionExists.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_03f54
+/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03f54.dir/link.txt --verbose=1
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -DCHECK_FUNCTION_EXISTS=pthread_create  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_03f54.dir/CheckFunctionExists.cxx.o -o cmTC_03f54  -lpthreads 
 /bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [cmTC_caea3] Error 1
+gmake[1]: *** [cmTC_03f54] Error 1
 gmake[1]: Leaving directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-gmake: *** [cmTC_caea3/fast] Error 2
+gmake: *** [cmTC_03f54/fast] Error 2
 
 
 
 Determining if the function dscal exists failed with the following output:
 Change Dir: /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/bin/gmake -f Makefile cmTC_b5ba1/fast && /bin/gmake  -f CMakeFiles/cmTC_b5ba1.dir/build.make CMakeFiles/cmTC_b5ba1.dir/build
+Run Build Command(s):/bin/gmake -f Makefile cmTC_6ae40/fast && /bin/gmake  -f CMakeFiles/cmTC_6ae40.dir/build.make CMakeFiles/cmTC_6ae40.dir/build
 gmake[1]: Entering directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_b5ba1.dir/CheckFunctionExists.cxx.o
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++   -DCHECK_FUNCTION_EXISTS=dscal -std=gnu++11 -o CMakeFiles/cmTC_b5ba1.dir/CheckFunctionExists.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_b5ba1
-/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5ba1.dir/link.txt --verbose=1
-/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -DCHECK_FUNCTION_EXISTS=dscal  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_b5ba1.dir/CheckFunctionExists.cxx.o -o cmTC_b5ba1  /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/openblas-0.3.20-7um3t6kt2ehks5bl2w7baqw3ampaq6a5/lib/libopenblas.so 
-CMakeFiles/cmTC_b5ba1.dir/CheckFunctionExists.cxx.o: In function `main':
+Building CXX object CMakeFiles/cmTC_6ae40.dir/CheckFunctionExists.cxx.o
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++   -DCHECK_FUNCTION_EXISTS=dscal -std=gnu++11 -o CMakeFiles/cmTC_6ae40.dir/CheckFunctionExists.cxx.o -c /storage/home/hhive1/sparmar32/projects/CSE6230/ParrLO/build/CMakeFiles/CheckFunctionExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_6ae40
+/storage/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cmake-3.23.1-327dblnbramviejdezocehqsujhu7yyg/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ae40.dir/link.txt --verbose=1
+/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++  -DCHECK_FUNCTION_EXISTS=dscal  -lcudart -lcudadevrt -lcublas -lcusparse -L/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/lib/libboost_program_options.so  CMakeFiles/cmTC_6ae40.dir/CheckFunctionExists.cxx.o -o cmTC_6ae40  /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/openblas-0.3.20-7um3t6kt2ehks5bl2w7baqw3ampaq6a5/lib/libopenblas.so 
+CMakeFiles/cmTC_6ae40.dir/CheckFunctionExists.cxx.o: In function `main':
 CheckFunctionExists.cxx:(.text+0x10): undefined reference to `dscal'
 collect2: error: ld returned 1 exit status
-gmake[1]: *** [cmTC_b5ba1] Error 1
+gmake[1]: *** [cmTC_6ae40] Error 1
 gmake[1]: Leaving directory `/storage/hive/project/chem-mcdaniel/sparmar32/CSE6230/ParrLO/build/CMakeFiles/CMakeTmp'
-gmake: *** [cmTC_b5ba1/fast] Error 2
+gmake: *** [cmTC_6ae40/fast] Error 2
 
 
 

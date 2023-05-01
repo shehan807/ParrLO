@@ -57,7 +57,7 @@ int main(int argc, char** argv)
     tstime.start();
 
     // dimension of matrix
-    const int n = 100;
+    const int n = 10;
 
     Replicated A(n, MPI_COMM_WORLD, nccl_world_comm);
 
