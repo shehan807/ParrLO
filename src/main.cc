@@ -51,6 +51,9 @@ namespace po = boost::program_options;
 // implementation=original
 //               =delta
 // ntasks = 2
+// precision = 2
+//           = 1
+//           = 0
 // [Convergence]
 // convergence_check="relative"
 //                  ="absolute"
@@ -81,7 +84,7 @@ int main(int argc, char** argv)
         bool idiagonal_rescaling;
         std::string iortho_type;
         int imax_iterations;
-        int intasks;
+        int intasks, iprecision;
         double itolerance;
         std::string iconvergence_check   = "relative";
         int ifrequency_convergence_check = 1;
@@ -126,6 +129,9 @@ int main(int argc, char** argv)
                 po::value<std::string>()->default_value("original"),
                 "Choice of implementation")("Schulz_iteration.ntasks",
                 po::value<int>()->default_value(1),
+                "Number of tasks to distribute Schulz computation")
+                ("Schulz_iteration.precision",
+                po::value<int>()->default_value(2),
                 "Number of tasks to distribute Schulz computation")(
                 "Convergence.convergence_check",
                 po::value<std::string>()->default_value("relative"),
@@ -181,6 +187,7 @@ int main(int argc, char** argv)
             iimplementation
                 = vm["Schulz_iteration.implementation"].as<std::string>();
             intasks = vm["Schulz_iteration.ntasks"].as<int>();
+            iprecision = vm["Schulz_iteration.precision"].as<int>();
             iconvergence_check
                 = vm["Convergence.convergence_check"].as<std::string>();
             ifrequency_convergence_check
@@ -274,6 +281,7 @@ int main(int argc, char** argv)
 
         MPI_Bcast(&imax_iterations, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Bcast(&intasks, 1, MPI_INT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(&iprecision, 1, MPI_INT, 0, MPI_COMM_WORLD);
         MPI_Bcast(&itolerance, 1, MPI_DOUBLE, 0, MPI_COMM_WORLD);
         MPI_Bcast(&ifrequency_convergence_check, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
@@ -312,15 +320,26 @@ int main(int argc, char** argv)
             std::cout << "Matrix size: " << nrows << "x" << ncols << std::endl;
         }
 
+        // Matrix A(nrows, ncols, MPI_COMM_WORLD, nccl_world_comm, iprecision);
         Matrix A(nrows, ncols, MPI_COMM_WORLD, nccl_world_comm);
 
+        float standard_deviation_s = iwavefunctions_width;
+        float support_length_s     = iwavefunctions_width;
         double standard_deviation = iwavefunctions_width;
         double support_length     = iwavefunctions_width;
 
-        if (iwavefunctions_type == "gaussian")
+
+
+        if (iwavefunctions_type == "gaussian"){
+        if (iprecision == 2) {
             A.gaussianColumnsInitialize(
                 standard_deviation, iwavefunctions_center_displacement);
-        else if (iwavefunctions_type == "hat")
+            } else{
+            //A.gaussianColumnsInitialize(
+            //    standard_deviation_s, iwavefunctions_center_displacement);
+            }
+
+           } else if (iwavefunctions_type == "hat")
             A.hatColumnsInitialize(
                 support_length, iwavefunctions_center_displacement);
 
@@ -386,3 +405,4 @@ int main(int argc, char** argv)
 
     return 0;
 }
+
