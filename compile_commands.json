@@ -1,0 +1,162 @@
+[
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/src",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/main.dir/main.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/main.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/main.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/src",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/main.dir/warmup.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/warmup.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/warmup.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/src",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/main.dir/MatrixClasses/Matrix_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Matrix_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Matrix_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/src",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/main.dir/MatrixClasses/Replicated_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/src",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/main.dir/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMPI.dir/testMPI.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testMPI.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testMPI.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMAGMA.dir/testMAGMA.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testMAGMA.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testMAGMA.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMaxNormReplicated.dir/testMaxNormReplicated.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testMaxNormReplicated.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testMaxNormReplicated.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMaxNormReplicated.dir/__/src/MatrixClasses/Replicated_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMaxNormReplicated.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testSchulz.dir/testSchulz.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testSchulz.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testSchulz.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testSchulz.dir/__/src/MatrixClasses/Replicated_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testSchulz.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testSchulzSingle.dir/testSchulzSingle.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testSchulzSingle.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testSchulzSingle.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testSchulzSingle.dir/__/src/MatrixClasses/Replicated_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testSchulzSingle.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrtho.dir/testOrtho.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testOrtho.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testOrtho.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrtho.dir/__/src/MatrixClasses/Matrix_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Matrix_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Matrix_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrtho.dir/__/src/MatrixClasses/Replicated_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrtho.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrthoRescale.dir/testOrthoRescale.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testOrthoRescale.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testOrthoRescale.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrthoRescale.dir/__/src/MatrixClasses/Matrix_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Matrix_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Matrix_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrthoRescale.dir/__/src/MatrixClasses/Replicated_def.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Replicated_def.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testOrthoRescale.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testAllreduce.dir/testAllreduce.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testAllreduce.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testAllreduce.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testAllreduce.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMatMul.dir/testMatMul.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/tests/testMatMul.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/tests/testMatMul.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/tests",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -I/storage/home/hhive1/awallace43/gits/ParrLO/src -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -O3 -fPIC -DNDEBUG -DADD_ -Wall -fopenmp -std=c++11 -std=gnu++11 -o CMakeFiles/testMatMul.dir/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/benchmarks/mpi",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/test_mpi_host.dir/test_mpi_host.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/benchmarks/mpi/test_mpi_host.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/benchmarks/mpi/test_mpi_host.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/benchmarks/mpi",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/test_mpi_host.dir/__/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/benchmarks/mpi",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/test_mpi_device.dir/test_mpi_device.cc.o -c /storage/home/hhive1/awallace43/gits/ParrLO/benchmarks/mpi/test_mpi_device.cc",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/benchmarks/mpi/test_mpi_device.cc"
+},
+{
+  "directory": "/storage/home/hhive1/awallace43/gits/ParrLO/build/benchmarks/mpi",
+  "command": "/usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/gcc-10.3.0-o57x6h2gubo7bzh7evmy4mvibdqrlghr/bin/g++ -DBOOST_PROGRAM_OPTIONS_DYN_LINK -DBOOST_PROGRAM_OPTIONS_NO_LIB -DC_DSCAL=dscal_ -DUSE_MAGMA -D_GLIBCXX_USE_CXX11_ABI=0 -I/storage/pace-apps/manual/packages/openmpi/4.1.4/gcc-10.3.0/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/boost-1.79.0-vkqkswusfqdtvposwgzsvkhbaxsi4tkr/include -isystem /storage/home/hhive1/awallace43/data/environ/include -isystem /usr/local/pace-apps/spack/packages/linux-rhel7-x86_64/gcc-4.8.5/cuda-11.6.0-u4jzhgn5buvcnkwuqrep25mluzkhzi3j/include -fopenmp -O3 -fPIC -DNDEBUG -DADD_ -Wall -std=c++11 -std=gnu++11 -o CMakeFiles/test_mpi_device.dir/__/__/src/MatrixClasses/Timer.cpp.o -c /storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp",
+  "file": "/storage/home/hhive1/awallace43/gits/ParrLO/src/MatrixClasses/Timer.cpp"
+}
+]

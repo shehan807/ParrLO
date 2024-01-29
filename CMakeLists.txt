@@ -3,6 +3,7 @@ project (ParallelLinearAlgebra LANGUAGES CXX)
 
 set (CMAKE_CXX_STANDARD 11)
 add_definitions(-D_GLIBCXX_USE_CXX11_ABI=0)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
